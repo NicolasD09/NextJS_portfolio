@@ -1,0 +1,18 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-vars": "warn",
+    "indent": [
+      "error",
+      2,
+      {
+        "VariableDeclarator": 1
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "quotes": [2, "single", { "avoidEscape": true }]
+  }
+}

@@ -1,0 +1,18 @@
+.heroContainer {
+  background-image: url('../../../public/home_background.png');
+  @apply object-fill bg-center;
+}
+
+.N,
+.arrow {
+  mix-blend-mode: overlay;
+  fill: white;
+}
+
+.N {
+  width: 16vw;
+}
+
+.arrow {
+  @apply absolute bottom-16 left-1/2 -translate-x-1/2;
+}

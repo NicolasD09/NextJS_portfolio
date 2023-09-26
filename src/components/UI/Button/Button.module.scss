@@ -1,0 +1,13 @@
+.seeMoreWrapper {
+  color: var(--orange);
+  font-weight: 400;
+  @apply flex gap-4;
+}
+
+.seeMoreIcon {
+  transition: all .3s ease-in-out;
+}
+
+.seeMoreWrapper:hover .seeMoreIcon {
+  transform: translateX(8px);
+}
