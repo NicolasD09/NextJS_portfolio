@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 :root {
   --gradient: linear-gradient(90deg, #DE9127 0%, #EA7A69 32.73%, #CFA4D5 63.84%, #7058EC 100%);
   --orange: #DE9127;
@@ -39,3 +43,7 @@ video {
   height: auto;
   max-width: unset;
 }
+
+/* Style for the navbar dropdown menus */
+[data-radix-popper-content-wrapper] { top: 8px !important; }
+

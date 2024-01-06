@@ -1,4 +1,10 @@
+.pictureWrapper {
+  position: relative;
+}
+
 .pictureWrapperImg {
+  position: relative;
+  z-index: 2;
   border-radius: 45px 5px;
 }
 

@@ -7,6 +7,7 @@ import { documentToReactComponents as renderElement } from '@contentful/rich-tex
 import { Grid } from '@/components/UI';
 import { SeeMore } from '@/components/UI/Button';
 import Routes from '@/lib/router';
+import { Circle } from '@/components/UI/BlurredShapes';
 
 export const SelfDescription = async () => {
   const selfDescription = await getSelfDescription()
@@ -15,9 +16,11 @@ export const SelfDescription = async () => {
     <div className={cn('fullHeightFlexContainer')}>
       <div className={'layoutWrapper'}>
         <Grid>
-          <Grid item colSpan={8} colStart={3} className={'flex items-center gap-12'}>
+          <Grid item colStart={3} colSpan={8} className={'flex items-center gap-12'}>
             <div className={cn(css.pictureWrapper)}>
               <Image className={cn(css.pictureWrapperImg)} src={me} alt={'Picture of me'}/>
+              <Circle color={'#DC6D02'} size={240} bottom={-230} left={-250}/>
+              <Circle color={'#5714B0'} size={240} top={-130} left={-80}/>
             </div>
             <div className={css.descriptionWrapper}>
               <p className={cn(css.descriptionTitle)}>{selfDescription.title}</p>

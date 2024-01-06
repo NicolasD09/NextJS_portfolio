@@ -1,0 +1,40 @@
+.menuListTitle {
+  font-weight: 500;
+  @apply mb-2;
+}
+
+.menuListGroup {
+  @apply pl-3 flex flex-col gap-2;
+}
+
+.menuListItem {
+  @apply text-black;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  position: relative;
+  display: inline-block;
+  transition: all .2s ease-in-out;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: all .2s ease-in-out;
+  }
+
+  &:hover {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}

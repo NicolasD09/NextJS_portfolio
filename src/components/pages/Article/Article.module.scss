@@ -1,0 +1,27 @@
+.articleTitle {
+  @apply font-title;
+  font-size: clamp(38px, calc(1rem + 2vw), 58px);
+  letter-spacing: 1px;
+}
+
+.articleWrapper h3 {
+  @apply text-xl font-bold;
+}
+
+.articleDescription {
+  @apply md:w-3/5
+}
+
+.articleImage {
+  @apply h-[280px] overflow-hidden relative my-40
+}
+
+.articleHeader {
+  @apply flex flex-col gap-8 content-start;
+}
+
+// select all paragraphs after a h3
+.articleContent h3 ~ p {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}

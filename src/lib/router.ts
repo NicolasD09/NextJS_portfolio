@@ -1,5 +1,6 @@
 enum Routes {
-  ABOUT_PAGE = 'about'
+  ABOUT_PAGE = '/a-propos',
+  SKILLS = '/competences',
 }
 
 export default Routes;
