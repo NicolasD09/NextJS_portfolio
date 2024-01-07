@@ -16,8 +16,15 @@ const SkillsMenuList = ({ skills, title }: SkillsMenuListProps) => {
       <Dd.Group className={css.menuListGroup}>
         {
           skills.map(skill => (
-            <Link key={skill.slug + Math.floor(Math.random() * 12354)} href={`${Routes.SKILLS}/${skill.slug}`} replace>
-              <Dd.Item key={skill.slug} className={css.menuListItem}>{skill.title.toUpperCase()}</Dd.Item>
+            <Link
+              key={'link_key_'+skill.slug}
+              href={`${Routes.SKILLS}/${skill.slug}`}
+            >
+              <Dd.Item
+                key={'link_item_key_'+skill.slug}
+                className={css.menuListItem}>
+                {skill.title.toUpperCase()}
+              </Dd.Item>
             </Link>
           ))
         }
