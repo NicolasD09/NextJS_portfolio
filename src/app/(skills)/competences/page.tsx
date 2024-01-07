@@ -1,7 +1,7 @@
 import { getSkills } from '@/api/skill';
 
 export default async function Page(){
-  const skills = await getSkills()
+  const { skills } = await getSkills()
   
   return (
     <>
