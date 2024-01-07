@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
 import { Grid } from '@/components/UI';
 import { SeeMore } from '@/components/UI/Button';
-import Routes from '@/lib/router';
+import { Route } from '@/lib/router';
 import { Circle } from '@/components/UI/BlurredShapes';
 
 export const SelfDescription = async () => {
@@ -27,7 +27,7 @@ export const SelfDescription = async () => {
               <div className={css.descriptionContentWrapper}>
                 <p className={css.descriptionSubtitle}>{selfDescription.subtitle}</p>
                 <>{renderElement(selfDescription.excerpt)}</>
-                <SeeMore to={Routes.ABOUT_PAGE}/>
+                <SeeMore to={Route.ABOUT_PAGE}/>
               </div>
             </div>
           </Grid>

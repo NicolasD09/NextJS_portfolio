@@ -1,7 +1,7 @@
 import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
 import { Entry, EntrySkeletonType } from 'contentful';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
-import Routes from '@/lib/router';
+import { Route } from '@/lib/router';
 import Image from 'next/image';
 import css from './Article.module.scss'
 import cn from 'classnames'
@@ -16,7 +16,7 @@ export type ArticleProps = {
   linkedItems?: ReadonlyArray<Entry<EntrySkeletonType<any>>>,
   linkedItemsTitle?: string,
   goBackButtonTitle: string,
-  goBackButtonRoute: Routes
+  goBackButtonRoute: Route
 }
 const Article = ({
   title,

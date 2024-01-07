@@ -21,7 +21,12 @@ export type SkillsByType =  {
   technicalSkills: PartialSkill[],
   humanSkills: PartialSkill[]
 }
-export const getSkills = async () => {
+
+export type AllSkills = {
+  skills: PartialSkill[];
+  skillsByType: SkillsByType;
+}
+export const getSkills = async (): Promise<AllSkills> => {
   const response: EntryCollection<EntrySkeletonType<ISkill>> = await client.getEntries({
     content_type: 'skill',
     select: ['fields.title', 'fields.projectType', 'fields.slug']
@@ -35,7 +40,7 @@ export const getSkills = async () => {
       technicalSkills: getSortedSkillsForType(skills, 'Technique'),
       humanSkills: getSortedSkillsForType(skills, 'Humaine')
     }
-  };
+  } as AllSkills;
 }
 
 function getSortedSkillsForType(skills: PartialSkill[], projectType: string) {

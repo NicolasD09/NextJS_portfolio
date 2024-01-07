@@ -11,6 +11,7 @@ body::-webkit-scrollbar{
 
 :root {
   --gradient: linear-gradient(90deg, #DE9127 0%, #EA7A69 32.73%, #CFA4D5 63.84%, #7058EC 100%);
+  --gradient2: linear-gradient(60deg, #F68B7B 0%, #FFF1D7 100%);
   --orange: #DE9127;
 }
 

@@ -1,0 +1,19 @@
+.sectionTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-self: start;
+  width: 100%;
+}
+
+.sectionTitle {
+  @apply w-full text-center font-title;
+  font-size: clamp(32px, 5vw, 54px);
+}
+
+.underline {
+  display: inline-block;
+  height: 2px;
+  background: var(--gradient);
+  width: 50vw;
+}

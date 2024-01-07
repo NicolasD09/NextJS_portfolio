@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getSkillBySlug } from '@/api/skill';
 import Article from '@/components/pages/Article';
 import css from './Skill.module.scss'
-import Routes from '@/lib/router';
+import { Route } from '@/lib/router';
 import Navbar from '@/components/Navbar';
 
 type Props = { params: { slug: string }}
@@ -27,7 +27,7 @@ export default async function Page({ params }: Props) {
     <Article
       content={skill.content}
       description={skill.description}
-      goBackButtonRoute={Routes.SKILLS}
+      goBackButtonRoute={Route.SKILLS}
       goBackButtonTitle={'Go back'}
       title={skill.title}
       linkedItems={[]}
