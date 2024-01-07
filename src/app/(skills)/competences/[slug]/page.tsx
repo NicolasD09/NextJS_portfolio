@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getSkill } from '@/api/skill';
+import { getSkillBySlug } from '@/api/skill';
 import Article from '@/components/pages/Article';
 import css from './Skill.module.scss'
 import Routes from '@/lib/router';
@@ -12,7 +12,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const slug = params.slug
 
-  const skill = await getSkill(slug);
+  const skill = await getSkillBySlug(slug);
 
   return {
     title: `Compétence - ${skill.title}`
@@ -20,7 +20,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: Props) {
-  const skill = await getSkill(params.slug);
+  const skill = await getSkillBySlug(params.slug);
 
   return <div className={css.skillPageWrapper}>
     <Navbar />

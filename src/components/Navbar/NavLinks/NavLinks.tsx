@@ -1,12 +1,12 @@
 import css from './NavLinks.module.scss'
 import SkillsMenu from '@/components/Navbar/SkillsMenu';
-import { getSkills, PartialSkill } from '@/api/skill';
+import { getSkills } from '@/api/skill';
 export const NavLinks = async () => {
-  const skills: PartialSkill[] = await getSkills()
+  const { skillsByType } = await getSkills()
 
   return (
     <div className={css.navLinksContainer}>
-      <SkillsMenu skills={skills}/>
+      <SkillsMenu skills={skillsByType}/>
       <span>Projets</span>
       <span>Expériences</span>
       <span>Contact</span>

@@ -1,25 +1,15 @@
 'use client'
 
 import * as Dd from '@radix-ui/react-dropdown-menu'
-import { PartialSkill } from '@/api/skill';
+import { SkillsByType } from '@/api/skill';
 import SkillsMenuList from '@/components/Navbar/SkillsMenu/SkillsMenuList';
 import css from './SkillsMenu.module.scss'
 import { DropdownArrowDown } from '@/components/Icons';
 
 type SkillsMenuProps = {
-  skills: PartialSkill[]
+  skills: SkillsByType
 }
-
-function getSortedSkillsForType(skills: PartialSkill[], projectType: string) {
-  return skills
-    .filter(skill => skill.projectType === projectType)
-    .sort((a, b) => a.title.localeCompare(b.title))
-}
-
 const SkillsMenu = ({ skills }: SkillsMenuProps) => {
-
-  const humanSkills = getSortedSkillsForType(skills, 'Humaine');
-  const technicalSkills = getSortedSkillsForType(skills, 'Technique');
 
   return (
     <Dd.Root>
@@ -33,8 +23,8 @@ const SkillsMenu = ({ skills }: SkillsMenuProps) => {
         {/* Content */}
         <Dd.Content align={'center'} className={css.DropdownMenuContent}>
           <div className={css.skillsMenu}>
-            <SkillsMenuList title={'HUMAINES'} skills={humanSkills}/>
-            <SkillsMenuList title={'TECHNIQUES'} skills={technicalSkills}/>
+            <SkillsMenuList title={'HUMAINES'} skills={skills.humanSkills}/>
+            <SkillsMenuList title={'TECHNIQUES'} skills={skills.technicalSkills}/>
           </div>
           <Dd.Arrow className={css.skillsMenuArrow}/>
         </Dd.Content>
