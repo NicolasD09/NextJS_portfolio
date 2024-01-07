@@ -1,14 +1,7 @@
 import { client } from '@/lib/contentful';
 import { EntryCollection, EntrySkeletonType } from 'contentful';
 import { ISkill } from '../../contentfulTypes';
-import { NextApiRequest, NextApiResponse } from 'next';
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  res.setHeader('Cache-Control', 'no-cache')
-}
+export const fetchCache = 'force-no-store'
 export const getSkillBySlug = async (slug: string) => {
 
   const response = await client.getEntries({
