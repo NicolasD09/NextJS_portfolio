@@ -2,6 +2,8 @@ import { client } from '@/lib/contentful';
 import { EntryCollection, EntrySkeletonType } from 'contentful';
 import { ISkill } from '../../contentfulTypes';
 export const fetchCache = 'force-no-store'
+// Opt out of caching for all data requests in the route segment
+export const dynamic = 'force-dynamic'
 export const getSkillBySlug = async (slug: string) => {
 
   const response = await client.getEntries({
