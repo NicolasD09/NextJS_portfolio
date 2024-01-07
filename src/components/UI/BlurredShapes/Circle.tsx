@@ -1,4 +1,3 @@
-'use client'
 import css from './style.module.scss';
 import cn from 'classnames';
 
@@ -24,13 +23,6 @@ const Circle = ({
   color,
   ...props
 }: CircleProps) => {
-
-  console.log({
-    top: getPosition(props.top),
-    bottom: getPosition(props.bottom),
-    left: getPosition(props.left),
-    right: getPosition(props.right),
-  })
 
   return (
     <svg
