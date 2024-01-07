@@ -1,4 +1,3 @@
-'use client'
 import { getSkills } from '@/api/skill';
 
 export const SkillsSection = async () => {
