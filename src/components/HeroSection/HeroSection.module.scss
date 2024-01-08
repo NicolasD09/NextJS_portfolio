@@ -1,6 +1,6 @@
 .heroContainer {
   background-image: url('../../../public/home_background.png');
-  @apply object-fill bg-center;
+  @apply object-cover bg-center bg-no-repeat;
 }
 
 .N,

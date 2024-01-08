@@ -3,8 +3,8 @@
   height: 100%;
   align-items: center;
   margin-inline: auto;
-  gap: 12rem;
   flex-wrap: wrap;
+  @apply gap-8 flex-col justify-center items-start sm:gap-48 sm:flex-row sm:items-center;
 }
 
 .skillsSectionContainer {
@@ -12,14 +12,14 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
-  padding-top: 7rem;
+  padding-top: 4%;
 }
 
 .skillLink {
   position: relative;
   font-weight: 500;
   width: fit-content;
-  font-size: clamp(24px, 2vh, 22px);
+  font-size: clamp(18px, 3vh, 22px);
   text-transform: uppercase;
 
   &::before {
