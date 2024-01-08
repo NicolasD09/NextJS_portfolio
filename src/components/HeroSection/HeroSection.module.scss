@@ -1,4 +1,5 @@
 .heroContainer {
+  display: flex;
   background-image: url('../../../public/home_background.png');
   @apply object-cover bg-center bg-no-repeat;
 }

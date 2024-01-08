@@ -1,11 +1,40 @@
 .pictureWrapper {
   position: relative;
+
+  &:before {
+    z-index: -1;
+    content: '';
+    display: block;
+    border-radius: 9999px;
+    background: #5714B0;
+    filter: blur(60px);
+    top: -3%;
+    right: -12%;
+    position: absolute;
+    height: clamp(130px, 12vw, 250px);
+    width: clamp(130px, 12vw, 250px);
+  }
+
+  &:after {
+    z-index: -1;
+    content: '';
+    display: block;
+    border-radius: 9999px;
+    background: #DC6D02;
+    filter: blur(60px);
+    bottom: -3%;
+    left: -8%;
+    position: absolute;
+    height: clamp(130px, 12vw, 250px);
+    width: clamp(130px, 12vw, 250px);
+  }
 }
 
 .pictureWrapperImg {
   position: relative;
   z-index: 2;
   border-radius: 45px 5px;
+  width: clamp(200px, 20vw, 340px);
 }
 
 .descriptionWrapper{

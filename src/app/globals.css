@@ -28,7 +28,7 @@ body::-webkit-scrollbar{
 }
 
 .fullHeightFlexContainer {
-  @apply flex items-center justify-center relative;
+  @apply items-center justify-center relative;
   height: 100vh;
   max-height: 100vh;
   max-width: 100vw;
