@@ -5,6 +5,14 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate, s-maxage=60"
+        },
+        {
+          "key": "CDN-Cache-Control",
+          "value": "public, max-age=0, must-revalidate, s-maxage=60"
+        },
+        {
+          "key": "Vercel-CDN-Cache-Control",
+          "value": "public, max-age=0, must-revalidate, s-maxage=60"
         }
       ],
       "source": "/"
