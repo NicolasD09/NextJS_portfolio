@@ -6,12 +6,20 @@ export const fetchCache = 'force-no-store';
 // Opt out of caching for all data requests in the route segment
 export const dynamic = 'force-dynamic';
 export const revalidate = 1;
+
+const requestOptions: Partial<RequestInit> = {
+  cache: 'no-store',
+  headers: {
+    'Cache-Control': 'max-age=0',
+    'CDN-Cache-Control': 'max-age=0',
+    'Vercel-CDN-Cache-Control': 'max-age=0',
+  },
+  next: { revalidate: 10 }
+}
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
     getSkillsForSlugURL(slug),
-    {
-      cache: 'no-store'
-    }).then(resp => resp.json())
+    { ...requestOptions }).then(resp => resp.json())
 
   return response.items[0].fields as unknown as ISkill;
 };
@@ -31,9 +39,7 @@ export const getSkills = async (): Promise<AllSkills> => {
 
   const response = await fetch(
     getSkillsURL(),
-    {
-      cache: 'no-store'
-    }).then(resp => resp.json())
+    { ...requestOptions }).then(resp => resp.json())
 
   const skills = response.items.map((item: any) => item.fields as PartialSkill);
 
