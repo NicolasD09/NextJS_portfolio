@@ -16,7 +16,15 @@ export const SelfDescription = async () => {
       <div className={'fullHeightFlexContainer hidden md:flex'}>
         <div className={'layoutWrapper'}>
           <Grid>
-            <Grid item colStart={3} colSpan={8} className={'flex items-center gap-12'}>
+            <Grid
+              item
+              colStart={3}
+              colSpan={8}
+              mdColStart={2}
+              mdColSpan={10}
+              lgColStart={3}
+              lgColSpan={8}
+              className={'flex items-center gap-12'}>
               <div className={cn(css.pictureWrapper)}>
                 <Image className={cn(css.pictureWrapperImg)} src={me} alt={'Picture of me'}/>
               </div>
@@ -32,7 +40,17 @@ export const SelfDescription = async () => {
           </Grid>
         </div>
       </div>
-      <div className={'flex flex-col md:hidden'}>Mobile</div>
+      <div className={'flex flex-col gap-4 px-5 my-12 md:hidden'}>
+        <div className="flex gap-4">
+          <Image className={cn(css.pictureWrapperImgMobile)} src={me} alt={'Picture of me'}/>
+          <div className={'flex flex-col gap-2 justify-center'}>
+            <p className={cn(css.descriptionTitle)}>{selfDescription.title}</p>
+            <p className={css.descriptionSubtitle}>{selfDescription.subtitle}</p>
+          </div>
+        </div>
+        <>{renderElement(selfDescription.excerpt)}</>
+        <SeeMore to={Route.ABOUT_PAGE}/>
+      </div>
     </>
   )
 }

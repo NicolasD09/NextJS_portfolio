@@ -35,14 +35,23 @@
   z-index: 2;
   border-radius: 45px 5px;
   width: clamp(200px, 20vw, 340px);
+
+  &Mobile {
+    width: clamp(90px, 20vw, 130px);
+    height: clamp(90px, 20vw, 130px);
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 5px;
+  }
 }
 
 .descriptionWrapper{
-  @apply flex flex-col gap-8;
+  @apply flex flex-col lg:gap-8 md:gap-2;
 }
 
 .descriptionTitle {
-  @apply font-title text-[56px];
+  @apply font-title;
+  font-size: clamp(28px, 4vw, 56px);
   background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;
@@ -50,7 +59,7 @@
 }
 
 .descriptionSubtitle {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 20px);
   font-weight: 500;
 }
 
