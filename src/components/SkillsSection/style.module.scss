@@ -48,3 +48,24 @@
   flex-direction: column;
   gap: 32px;
 }
+
+.skillLinkWrapper {
+  position: relative;
+  width: fit-content;
+
+  &:hover .skillType {
+    transform: translateY(5px);
+    height: 40px;
+  }
+}
+
+.skillType {
+  transition: all .2s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(-100%);
+  top: 0;
+  left: calc(100% + 12px);
+  height: 0;
+  overflow: hidden;
+}

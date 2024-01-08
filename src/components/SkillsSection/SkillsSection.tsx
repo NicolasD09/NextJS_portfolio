@@ -11,9 +11,14 @@ const SkillsList = ({ skills }: {skills: PartialSkill[]}) => {
       {
         skills.map(s => {
           return (
-            <Link href={getRouteForSkill(s)} key={s.slug} className={css.skillLink} >
-              {s.title}
-            </Link>
+            <div key={''} className={css.skillLinkWrapper}>
+              <Link href={getRouteForSkill(s)} key={s.slug} className={css.skillLink} >
+                {s.title}
+              </Link>
+              <span className={css.skillType}>
+                /{s.projectType}
+              </span>
+            </div>
           )
         })
       }
