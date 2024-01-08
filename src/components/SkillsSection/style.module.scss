@@ -11,15 +11,16 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 4%;
+  @apply gap-4 md:gap-0;
 }
 
 .skillLink {
   position: relative;
   font-weight: 500;
   width: fit-content;
-  font-size: clamp(18px, 3vh, 22px);
+  font-size: clamp(18px, 4vw, 22px);
   text-transform: uppercase;
 
   &::before {
