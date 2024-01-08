@@ -16,7 +16,7 @@ const SkillsList = ({ skills }: {skills: PartialSkill[]}) => {
                 {s.title}
               </Link>
               <span className={css.skillType}>
-                /{s.projectType}
+              /{s.projectType}
               </span>
             </div>
           )

@@ -52,10 +52,11 @@
 .skillLinkWrapper {
   position: relative;
   width: fit-content;
+  display: flex;
 
   &:hover .skillType {
-    transform: translateY(5px);
-    height: 40px;
+    transform: translate(12px, -50%);
+    opacity: 1;
   }
 }
 
@@ -63,9 +64,10 @@
   transition: all .2s ease-in-out;
   pointer-events: none;
   position: absolute;
-  transform: translateY(-100%);
-  top: 0;
-  left: calc(100% + 12px);
-  height: 0;
+  top: 50%;
+  transform:  translate(12px, -150%);
+  transform-origin: left;
+  left: 100%;
+  opacity: 0;
   overflow: hidden;
 }
