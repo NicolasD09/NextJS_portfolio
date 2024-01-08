@@ -1,16 +1,17 @@
-import { client } from '@/lib/contentful';
+import { client, getSkillsForSlugURL, getSkillsURL } from '@/lib/contentful';
 import { EntryCollection, EntrySkeletonType } from 'contentful';
 import { ISkill } from '../../contentfulTypes';
+import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 export const fetchCache = 'force-no-store';
 // Opt out of caching for all data requests in the route segment
 export const dynamic = 'force-dynamic';
 export const revalidate = 1;
 export const getSkillBySlug = async (slug: string) => {
-
-  const response = await client.getEntries({
-    content_type: 'skill',
-    'fields.slug[match]': slug,
-  });
+  const response = await fetch(
+    getSkillsForSlugURL(slug),
+    {
+      cache: 'no-cache'
+    }).then(resp => resp.json())
 
   return response.items[0].fields as unknown as ISkill;
 };
@@ -27,12 +28,14 @@ export type AllSkills = {
   skillsByType: SkillsByType;
 }
 export const getSkills = async (): Promise<AllSkills> => {
-  const response: EntryCollection<EntrySkeletonType<ISkill>> = await client.getEntries({
-    content_type: 'skill',
-    select: ['fields.title', 'fields.projectType', 'fields.slug']
-  });
 
-  const skills = response.items.map(item => item.fields as PartialSkill);
+  const response = await fetch(
+    getSkillsURL(),
+    {
+      cache: 'no-cache'
+    }).then(resp => resp.json())
+
+  const skills = response.items.map((item: any) => item.fields as PartialSkill);
 
   return {
     skills: skills,

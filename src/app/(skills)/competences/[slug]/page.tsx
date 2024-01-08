@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { getSkillBySlug } from '@/api/skill';
+import { getSkillBySlug, getSkills } from '@/api/skill';
 import Article from '@/components/pages/Article';
 import css from './Skill.module.scss'
 import { Route } from '@/lib/router';
 import Navbar from '@/components/Navbar';
+import { all } from 'axios';
 
 type Props = { params: { slug: string }}
 
@@ -21,9 +22,11 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const skill = await getSkillBySlug(params.slug);
+  const allSkills = await getSkills()
+
 
   return <div className={css.skillPageWrapper}>
-    <Navbar />
+    <Navbar skills={allSkills} />
     <Article
       content={skill.content}
       description={skill.description}

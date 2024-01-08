@@ -36,11 +36,10 @@ const Article = ({
       <div className={css.articleImage}>
         <Image
           src={'/home_background.png'}
-          alt={'image'}
+          alt={'Background image'}
           fill={true}
-          objectPosition={'center center'}
           placeholder={'blur'}
-          blurDataURL={'/me.png'}
+          blurDataURL={'/home_background_preload.png'}
         />
       </div>
       <div className={'layoutWrapper'}>

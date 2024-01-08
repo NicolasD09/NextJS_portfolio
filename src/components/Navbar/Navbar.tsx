@@ -3,11 +3,15 @@ import cn from 'classnames'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image';
 import NavLinks from '@/components/Navbar/NavLinks';
-export const Navbar = () => {
+import { AllSkills } from '@/api/skill';
+import Link from 'next/link';
+export const Navbar = ({ skills }: {skills: AllSkills}) => {
   return (
     <div className={cn('layoutWrapper', css.navbar)}>
-      <Image src={logo} alt={'Brand logo'}/>
-      <NavLinks/>
+      <Link href={'/'}>
+        <Image src={logo} alt={'Brand logo'}/>
+      </Link>
+      <NavLinks skills={skills}/>
     </div>
   )
 }
