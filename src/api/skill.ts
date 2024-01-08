@@ -10,7 +10,7 @@ export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
     getSkillsForSlugURL(slug),
     {
-      cache: 'no-cache'
+      cache: 'no-store'
     }).then(resp => resp.json())
 
   return response.items[0].fields as unknown as ISkill;
@@ -32,7 +32,7 @@ export const getSkills = async (): Promise<AllSkills> => {
   const response = await fetch(
     getSkillsURL(),
     {
-      cache: 'no-cache'
+      cache: 'no-store'
     }).then(resp => resp.json())
 
   const skills = response.items.map((item: any) => item.fields as PartialSkill);
