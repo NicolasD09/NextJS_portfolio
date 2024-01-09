@@ -4,7 +4,6 @@ import Article from '@/components/pages/Article';
 import css from './Skill.module.scss'
 import { Route } from '@/lib/router';
 import Navbar from '@/components/Navbar';
-import { all } from 'axios';
 
 type Props = { params: { slug: string }}
 

@@ -4,12 +4,14 @@ import Link from 'next/link';
 
 interface SeeMoreProps {
   to: string;
+  label?: string;
 }
-export const SeeMore = ({ to }: SeeMoreProps) => {
+export const SeeMore = ({ to, label }: SeeMoreProps) => {
+  const usedLabel = label ? label : 'En savoir plus';
   return (
     <Link href={to}>
       <span className={css.seeMoreWrapper}>
-        <span>En savoir plus</span>
+        <span>{usedLabel}</span>
         <span className={css.seeMoreIcon}>
           <ArrowRight/>
         </span>

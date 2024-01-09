@@ -1,5 +1,4 @@
-import { client, getSkillsForSlugURL, getSkillsURL } from '@/lib/contentful';
-import { EntryCollection, EntrySkeletonType } from 'contentful';
+import { getSkillForSlugURL, requestOptions, SKILLS_URL } from '@/lib/contentful';
 import { ISkill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 export const fetchCache = 'force-no-store';
@@ -7,18 +6,9 @@ export const fetchCache = 'force-no-store';
 export const dynamic = 'force-dynamic';
 export const revalidate = 1;
 
-const requestOptions: Partial<RequestInit> = {
-  cache: 'no-store',
-  headers: {
-    'Cache-Control': 'max-age=0',
-    'CDN-Cache-Control': 'max-age=0',
-    'Vercel-CDN-Cache-Control': 'max-age=0',
-  },
-  next: { revalidate: 10 }
-}
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
-    getSkillsForSlugURL(slug),
+    getSkillForSlugURL(slug),
     { ...requestOptions }).then(resp => resp.json())
 
   return response.items[0].fields as unknown as ISkill;
@@ -38,7 +28,7 @@ export type AllSkills = {
 export const getSkills = async (): Promise<AllSkills> => {
 
   const response = await fetch(
-    getSkillsURL(),
+    SKILLS_URL,
     { ...requestOptions }).then(resp => resp.json())
 
   const skills = response.items.map((item: any) => item.fields as PartialSkill);

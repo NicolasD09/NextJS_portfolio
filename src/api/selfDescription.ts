@@ -1,13 +1,7 @@
-import { client } from '@/lib/contentful';
-import { EntryCollection, EntrySkeletonType } from 'contentful';
+import { getSelfDescriptionUrl, requestOptions } from '@/lib/contentful';
 import { ISelfDescription } from '../../contentfulTypes';
 export const getSelfDescription = async () => {
-  // Get the first self description that has been created
-  const response: EntryCollection<EntrySkeletonType<ISelfDescription>> = await client.getEntries({
-    content_type: 'selfDescription',
-    order: ['sys.createdAt'],
-    limit: 1
-  });
+  const data = await fetch(getSelfDescriptionUrl(), requestOptions).then(resp => resp.json())
 
-  return response.items[0].fields as ISelfDescription;
+  return data.items[0].fields as ISelfDescription;
 };

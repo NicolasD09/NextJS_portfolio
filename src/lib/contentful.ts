@@ -10,13 +10,35 @@ export const client = createClient({
   accessToken: contentfultoken,
 });
 
-const contentfulApiURL = `https://cdn.contentful.com/spaces/${contentfulspaceid}/entries?access_token=${contentfultoken}`;
-// https://cdn.contentful.com/spaces/7729j5m8keg2/entries?access_token=HVqix83mq5nuP6T0f5YWdXhfQdktiK__XC8DECOx-wM&content_type=skill&fields.slug[match]=api
-
-export const getSkillsForSlugURL = (slug: string) => {
-  return `${contentfulApiURL}&content_type=skill&fields.slug[match]=${slug}`
+export const requestOptions: Partial<RequestInit> = {
+  cache: 'no-store',
+  headers: {
+    'Cache-Control': 'public, max-age=0, must-revalidate',
+    'CDN-Cache-Control': 'public, max-age=0, must-revalidate',
+    'Vercel-CDN-Cache-Control': 'public, max-age=0, must-revalidate',
+  }
 }
 
-export const getSkillsURL = () => {
-  return `${contentfulApiURL}&content_type=skill`
+const contentfulApiURL = `https://cdn.contentful.com/spaces/${contentfulspaceid}/entries?access_token=${contentfultoken}`;
+
+const contentTypeURL = (type: string) => {
+  return `${contentfulApiURL}&content_type=${type}`
+}
+
+export const SKILLS_URL = contentTypeURL('skill');
+
+export const PROJECTS_URL = contentTypeURL('project');
+
+export const SELF_DESCRIPTION_URL = contentTypeURL('selfDescription')
+
+export const getSkillForSlugURL = (slug: string) => {
+  return `${SKILLS_URL}&fields.slug[match]=${slug}`
+}
+
+export const getProjectForSlugURL = (slug: string) => {
+  return `${PROJECTS_URL}&fields.slug[match]=${slug}`
+}
+
+export const getSelfDescriptionUrl = () => {
+  return `${SELF_DESCRIPTION_URL}&order=sys.createdAt&limit=1`
 }

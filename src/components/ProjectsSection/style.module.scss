@@ -17,8 +17,7 @@
 .projectsList {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 40px;
-  grid-gap: 10px;
+  grid-gap: 36px;
 }
 
 .project:nth-child(-1n + 3) {
@@ -33,5 +32,65 @@
   grid-column: 7 / span 4;
 }
 .project {
-  background-color: tomato;
+  padding: 1rem;
+  @apply flex flex-col gap-4 border border-gray-300 rounded-md;
+  box-shadow: 0 4px 16px 0 rgba(210, 115, 20, 0.12);
+
+  &Header {
+    @apply flex flex-col items-center gap-4;
+
+    &Title {
+      @apply font-title;
+      font-size: clamp(18px, 2vw, 24px);
+    }
+  }
+}
+
+.skillsList {
+  position: relative;
+  width: fit-content;
+  &:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    bottom: -2px;
+    background-color: var(--color);
+    opacity: 0.6;
+  }
+
+  &:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    transform: rotate(-2deg);
+    left: 6px;
+    right: 12px;
+    top: -2px;
+    bottom: -2px;
+    background-color: var(--color);
+    opacity: 0.3;
+  }
+}
+
+.orange {
+  --color: rgba(239, 132, 67);
+}
+
+.purple {
+  --color: rgba(213, 153, 217);
+}
+
+.gray {
+  --color: rgba(202, 196, 185);
+}
+
+.yellow {
+  --color: rgba(224, 193, 96);
+}
+
+.coral {
+  --color: rgba(236, 118, 82);
 }
