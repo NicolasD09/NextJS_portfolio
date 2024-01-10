@@ -1,10 +1,6 @@
 import { getSkillForSlugURL, requestOptions, SKILLS_URL } from '@/lib/contentful';
 import { ISkill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
-export const fetchCache = 'force-no-store';
-// Opt out of caching for all data requests in the route segment
-export const dynamic = 'force-dynamic';
-export const revalidate = 1;
 
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(

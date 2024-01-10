@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getSkillBySlug, getSkills } from '@/api/skill';
+import { getSkills } from '@/api/skill';
 import Article from '@/components/pages/Article';
 import css from './style.module.scss'
 import { Route } from '@/lib/router';
