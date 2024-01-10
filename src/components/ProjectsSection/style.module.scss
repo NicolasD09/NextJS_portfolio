@@ -4,7 +4,8 @@
   grid-template-rows: auto 1fr;
   min-height: 100vh;
   padding-top: 7vh;
-  @apply gap-4 md:gap-0;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .projectsWrapper {
@@ -49,12 +50,13 @@
 .skillsList {
   position: relative;
   width: fit-content;
+  font-size: clamp(14px, 2vw, 14px);
   &:before {
     z-index: -1;
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
+    left: -4px;
+    right: -4px;
     top: -2px;
     bottom: -2px;
     background-color: var(--color);

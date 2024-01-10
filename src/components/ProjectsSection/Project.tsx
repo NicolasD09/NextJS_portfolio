@@ -1,7 +1,7 @@
 import css from './style.module.scss'
 import { ProjectWithSkills } from '@/api/projects';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
-import { Route } from '@/lib/router';
+import { getRouteForProject } from '@/lib/router';
 import { SeeMore } from '@/components/UI/Button';
 import cn from 'classnames';
 
@@ -53,7 +53,7 @@ export const Project = ({ project }: ProjectProps) => {
         <SkillsList skills={project.skills} />
       </div>
       <div>{renderElement(project.excerpt)}</div>
-      <SeeMore label={'Voir le projet'} to={Route.ABOUT_PAGE}/>
+      <SeeMore label={'Voir le projet'} to={getRouteForProject(project)}/>
     </div>
   )
 }
