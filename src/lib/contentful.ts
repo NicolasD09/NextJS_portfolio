@@ -13,9 +13,9 @@ export const client = createClient({
 export const requestOptions: Partial<RequestInit> = {
   cache: 'no-store',
   headers: {
-    'Cache-Control': 'public, max-age=0, must-revalidate',
-    'CDN-Cache-Control': 'public, max-age=0, must-revalidate',
-    'Vercel-CDN-Cache-Control': 'public, max-age=0, must-revalidate',
+    'Cache-Control': 'private, max-age=0, must-revalidate',
+    'CDN-Cache-Control': 'private, max-age=0, must-revalidate',
+    'Vercel-CDN-Cache-Control': 'private, max-age=0, must-revalidate',
   }
 }
 
