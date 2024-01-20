@@ -1,4 +1,4 @@
-import { ArrowRight } from '@/components/icons';
+import ArrowRight from '@/components/Icons/ArrowRight';
 import css from './Button.module.scss'
 import Link from 'next/link';
 

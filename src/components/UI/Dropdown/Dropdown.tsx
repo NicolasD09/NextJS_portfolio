@@ -2,7 +2,7 @@
 
 import * as Dd from '@radix-ui/react-dropdown-menu';
 import css from './style.module.scss';
-import { DropdownArrowDown } from '@/components/icons';
+import DropdownArrowDown from '@/components/Icons/DropdownArrowDown';
 import { PropsWithChildren } from 'react';
 
 const Dropdown = ({ children, label }: PropsWithChildren & {label: string}) => {

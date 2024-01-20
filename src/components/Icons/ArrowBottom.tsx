@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export const ArrowBottom = (props: SVGProps<any>) => {
+const ArrowBottom = (props: SVGProps<any>) => {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="18" height="40" viewBox="0 0 18 40" fill="none">
       <g>
@@ -14,3 +14,5 @@ export const ArrowBottom = (props: SVGProps<any>) => {
     </svg>
   )
 }
+
+export default ArrowBottom;
