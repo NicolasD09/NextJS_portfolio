@@ -1,3 +1,3 @@
-import { SkillsSection } from './SkillsSection'
+import SkillsSection from './SkillsSection'
 
 export default SkillsSection;

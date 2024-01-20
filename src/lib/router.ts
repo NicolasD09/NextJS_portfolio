@@ -1,6 +1,3 @@
-import { PartialSkill } from '@/api/skill';
-import { ProjectWithSkills } from '@/api/projects';
-
 // eslint-disable-next-line no-unused-vars
 enum Route {
   // eslint-disable-next-line no-unused-vars
@@ -11,11 +8,11 @@ enum Route {
   PROJECTS = '/projets'
 }
 
-const getRouteForSkill = (skill: PartialSkill) => {
+const getRouteForSkill = (skill: {slug: string}) => {
   return `${Route.SKILLS}/${skill.slug}`
 }
 
-const getRouteForProject = (project: ProjectWithSkills) => {
+const getRouteForProject = (project: {slug: string}) => {
   return `${Route.PROJECTS}/${project.slug}`
 }
 

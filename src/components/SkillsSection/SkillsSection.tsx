@@ -1,5 +1,5 @@
 import { AllSkills, PartialSkill } from '@/api/skill';
-import SectionTitle from '@/components/SectionTitle';
+import SectionTitle from '@/components/sectionTitle/SectionTitle';
 import css from './style.module.scss'
 import cn from 'classnames';
 import Link from 'next/link';
@@ -25,7 +25,7 @@ const SkillsList = ({ skills }: {skills: PartialSkill[]}) => {
     </div>
   )
 }
-export const SkillsSection = async ({ skills }: { skills: AllSkills }) => {
+const SkillsSection = async ({ skills }: { skills: AllSkills }) => {
   const { technicalSkills, humanSkills } = skills.skillsByType;
   return (
     <div className={
@@ -41,3 +41,5 @@ export const SkillsSection = async ({ skills }: { skills: AllSkills }) => {
     </div>
   )
 }
+
+export default SkillsSection;

@@ -1,21 +1,16 @@
+'use client'
+
 import css from './style.module.scss'
 import { ProjectWithSkills } from '@/api/projects';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
 import { getRouteForProject } from '@/lib/router';
-import { SeeMore } from '@/components/UI/Button';
+import SeeMoreButton from '../ui/button/SeeMoreButton';
 import cn from 'classnames';
 
 type ProjectProps = {
-  project: ProjectWithSkills
+  project: ProjectWithSkills;
+  index: number;
 }
-
-const COLORS = [
-  css.orange,
-  css.purple,
-  css.gray,
-  css.yellow,
-  css.coral
-]
 
 let colors = [
   css.orange,
@@ -25,35 +20,37 @@ let colors = [
   css.coral
 ]
 
-const getColor = () => {
-  if(colors.length === 0) colors = COLORS;
-  const color = colors[0];
-  colors.shift();
-  return color;
+const getColor = (index: number) => colors[index]
+
+type SkillsListProps = {
+  skills: ProjectWithSkills['skills'];
+  index: number
 }
-const SkillsList = ({ skills }: {skills: ProjectWithSkills['skills']}) => {
+const SkillsList = ({ skills, index }: SkillsListProps) => {
   return(
-    <div className={cn('flex gap-0.5 flex-wrap justify-center', css.skillsList, getColor())}>
+    <div className={cn('flex gap-0.5 flex-wrap justify-center', css.skillsList, getColor(index))}>
       <>{
-        skills.map((s, i) => <>
+        skills.map((s, i) => <span key={'skillSpan_'+s.slug}>
           <span>{s.title}</span>
           {i !== skills.length - 1 &&
-          <span className={'font-[500]'}>/</span>
+          <span className={'font-medium'}>/</span>
           }
-        </>)
+        </span>)
       }</>
     </div>
   )
 }
-export const Project = ({ project }: ProjectProps) => {
+export const Project = ({ project, index }: ProjectProps) => {
   return (
     <div className={css.project}>
-      <div className={css.projectHeader}>
-        <div className={css.projectHeaderTitle}>{project.title}</div>
-        <SkillsList skills={project.skills} />
+      <div className={css.projectContent}>
+        <div className={css.projectHeader}>
+          <div className={css.projectHeaderTitle}>{project.title}</div>
+          <SkillsList skills={project.skills} index={index} />
+        </div>
+        <div>{renderElement(project.excerpt)}</div>
       </div>
-      <div>{renderElement(project.excerpt)}</div>
-      <SeeMore label={'Voir le projet'} to={getRouteForProject(project)}/>
+      <SeeMoreButton label={'Voir le projet'} to={getRouteForProject(project)}/>
     </div>
   )
 }

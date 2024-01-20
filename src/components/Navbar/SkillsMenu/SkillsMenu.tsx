@@ -1,10 +1,9 @@
 'use client'
 
-import * as Dd from '@radix-ui/react-dropdown-menu'
 import { SkillsByType } from '@/api/skill';
-import SkillsMenuList from '@/components/Navbar/SkillsMenu/SkillsMenuList';
-import css from './SkillsMenu.module.scss'
-import { DropdownArrowDown } from '@/components/Icons';
+import { getRouteForSkill } from '@/lib/router';
+import Dropdown from '@/components/ui/dropdown/Dropdown';
+import MenuList from '@/components/Navbar/SkillsMenu/MenuList';
 
 type SkillsMenuProps = {
   skills: SkillsByType
@@ -12,24 +11,10 @@ type SkillsMenuProps = {
 const SkillsMenu = ({ skills }: SkillsMenuProps) => {
 
   return (
-    <Dd.Root>
-      <Dd.Trigger className={css.skillsMenuTrigger}>
-        <span>
-          Compétences
-        </span>
-        <DropdownArrowDown className={css.skillsMenuDropdownArrow}/>
-      </Dd.Trigger>
-      <Dd.Portal>
-        {/* Content */}
-        <Dd.Content align={'center'} className={css.DropdownMenuContent}>
-          <div className={css.skillsMenu}>
-            <SkillsMenuList title={'HUMAINES'} skills={skills.humanSkills}/>
-            <SkillsMenuList title={'TECHNIQUES'} skills={skills.technicalSkills}/>
-          </div>
-          <Dd.Arrow className={css.skillsMenuArrow}/>
-        </Dd.Content>
-      </Dd.Portal>
-    </Dd.Root>
+    <Dropdown label={'Compétences'}>
+      <MenuList title={'HUMAINES'} items={skills.humanSkills} getRoute={getRouteForSkill}/>
+      <MenuList title={'TECHNIQUES'} items={skills.technicalSkills} getRoute={getRouteForSkill}/>
+    </Dropdown>
   )
 }
 

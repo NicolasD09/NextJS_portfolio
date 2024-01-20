@@ -1,26 +1,43 @@
+'use client'
+
 import css from './style.module.scss'
-import SectionTitle from '@/components/SectionTitle';
+import SectionTitle from '@/components/sectionTitle/SectionTitle';
 import { Project } from './Project';
-import { getAllProjects } from '@/api/projects';
+import { ProjectWithSkills } from '@/api/projects';
+import useEmblaCarousel from 'embla-carousel-react'
 import cn from 'classnames';
 
-export const ProjectsSection = async () => {
-  const projects = await getAllProjects()
+const ProjectsSection = ({ projects }: {projects: ProjectWithSkills[]}) => {
+  const [emblaRef] = useEmblaCarousel(
+    {
+      dragFree: true,
+      loop: true,
+      align: 'center'
+    }
+  )
+
   return (
     <div className={css.projectsSectionContainer}>
       <SectionTitle title={'Réalisations'}/>
       <div className={css.projectsWrapper}>
-        <div className={cn(css.projectsList, 'layoutWrapper')}>
-          {
-            projects.map(project => {
-              return <Project
-                key={project.slug}
-                project={project}
-              />
-            })
-          }
+        <div className={css.embla}>
+          <div className={cn(css.emblaViewport)} ref={emblaRef}>
+            <div className={css.emblaContainer}>
+              {projects.map((project, index) => (
+                <div className={css.emblaSlide} key={project.slug}>
+                  <Project
+                    index={index}
+                    key={project.slug}
+                    project={project}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
+export default ProjectsSection;

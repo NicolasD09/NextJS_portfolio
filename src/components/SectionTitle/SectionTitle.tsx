@@ -3,7 +3,7 @@ import css from './style.module.scss'
 type SectionTitleProps = {
   title: string;
 }
-export const SectionTitle = ({
+const SectionTitle = ({
   title
 }: SectionTitleProps) => {
   return (
@@ -13,3 +13,5 @@ export const SectionTitle = ({
     </div>
   )
 }
+
+export default SectionTitle;

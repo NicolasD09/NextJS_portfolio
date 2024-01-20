@@ -4,11 +4,11 @@ import { getSelfDescription } from '@/api/selfDescription';
 import me from '../../../public/me.png'
 import Image from 'next/image';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
-import { Grid } from '@/components/UI';
-import { SeeMore } from '@/components/UI/Button';
 import { Route } from '@/lib/router';
+import Grid from '@/components/UI/Grid/Grid';
+import SeeMoreButton from '@/components/UI/Button/SeeMoreButton';
 
-export const SelfDescription = async () => {
+const SelfDescription = async () => {
   const selfDescription = await getSelfDescription()
 
   return (
@@ -33,7 +33,7 @@ export const SelfDescription = async () => {
                 <div className={css.descriptionContentWrapper}>
                   <p className={css.descriptionSubtitle}>{selfDescription.subtitle}</p>
                   <>{renderElement(selfDescription.excerpt)}</>
-                  <SeeMore to={Route.ABOUT_PAGE}/>
+                  <SeeMoreButton to={Route.ABOUT_PAGE}/>
                 </div>
               </div>
             </Grid>
@@ -49,8 +49,10 @@ export const SelfDescription = async () => {
           </div>
         </div>
         <>{renderElement(selfDescription.excerpt)}</>
-        <SeeMore to={Route.ABOUT_PAGE}/>
+        <SeeMoreButton to={Route.ABOUT_PAGE}/>
       </div>
     </>
   )
 }
+
+export default SelfDescription;

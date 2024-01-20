@@ -31,11 +31,11 @@ type GridProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElemen
 }
 
 /**
- * Grid element
+ * grid element
  *
  * The colspan is by default 'sm:col-span-{colSpan}'
 */
-export const Grid = (
+const Grid = (
   { item = false,
     cols = 12,
     children,
@@ -81,3 +81,5 @@ export const Grid = (
     </div>
   )
 }
+
+export default Grid;
