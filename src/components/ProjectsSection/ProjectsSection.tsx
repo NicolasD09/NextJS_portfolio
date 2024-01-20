@@ -1,7 +1,7 @@
 'use client'
 
 import css from './style.module.scss'
-import SectionTitle from '@/components/sectionTitle/SectionTitle';
+import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import { Project } from './Project';
 import { ProjectWithSkills } from '@/api/projects';
 import useEmblaCarousel from 'embla-carousel-react'
