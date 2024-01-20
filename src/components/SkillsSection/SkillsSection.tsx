@@ -1,5 +1,5 @@
 import { AllSkills, PartialSkill } from '@/api/skill';
-import SectionTitle from '@/components/sectionTitle/SectionTitle';
+import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import css from './style.module.scss'
 import cn from 'classnames';
 import Link from 'next/link';

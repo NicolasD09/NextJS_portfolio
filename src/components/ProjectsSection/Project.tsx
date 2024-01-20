@@ -4,8 +4,8 @@ import css from './style.module.scss'
 import { ProjectWithSkills } from '@/api/projects';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
 import { getRouteForProject } from '@/lib/router';
-import SeeMoreButton from '../ui/button/SeeMoreButton';
 import cn from 'classnames';
+import SeeMoreButton from '@/components/UI/Button/SeeMoreButton';
 
 type ProjectProps = {
   project: ProjectWithSkills;

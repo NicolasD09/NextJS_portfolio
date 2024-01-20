@@ -2,8 +2,8 @@
 
 import { SkillsByType } from '@/api/skill';
 import { getRouteForSkill } from '@/lib/router';
-import Dropdown from '@/components/ui/dropdown/Dropdown';
 import MenuList from '@/components/Navbar/SkillsMenu/MenuList';
+import Dropdown from '@/components/UI/Dropdown/Dropdown';
 
 type SkillsMenuProps = {
   skills: SkillsByType

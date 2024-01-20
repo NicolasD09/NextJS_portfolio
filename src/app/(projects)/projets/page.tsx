@@ -1,5 +1,5 @@
 import { getSkills } from '@/api/skill';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import { getAllProjects } from '@/api/projects';
 
 export default async function Page(){
@@ -8,7 +8,7 @@ export default async function Page(){
   
   return (
     <>
-      <Navbar skills={allSkills} />
+      <Navbar skills={allSkills} projects={projects} />
       <h1 className={'font-title text-2xl mb-4'}>Réalisations</h1>
       <div>
         {projects.map(skill => {
