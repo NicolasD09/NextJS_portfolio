@@ -1,12 +1,17 @@
 .heroContainer {
   display: flex;
-  background-image: url('../../../public/home_background.png');
-  @apply object-cover bg-center bg-no-repeat;
+  //background-image: url('../../../public/home_background.png');
+  //@apply object-cover bg-center bg-no-repeat;
+  background: linear-gradient(225deg, #957ef6, #dc96e7, #f6988a, #fdc788, #e4e4d2);
+  background-size: 150% 150%;
+  -webkit-animation: Gradient 9s ease infinite;
+  -moz-animation: Gradient 9s ease infinite;
+  animation: Gradient 9s ease infinite;
 }
 
 .N,
 .arrow {
-  mix-blend-mode: overlay;
+  mix-blend-mode: soft-light;
   fill: white;
 }
 
@@ -16,4 +21,29 @@
 
 .arrow {
   @apply absolute bottom-16 left-1/2 -translate-x-1/2;
+}
+
+.css-selector {
+  background: linear-gradient(245deg, #a893ff, #e4aaec, #ffa193, #ffd190, #e4e4d2);
+  background-size: 1000% 1000%;
+
+  -webkit-animation: Gradient 23s ease infinite;
+  -moz-animation: Gradient 23s ease infinite;
+  animation: Gradient 23s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@-moz-keyframes Gradient {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@keyframes Gradient {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
 }
