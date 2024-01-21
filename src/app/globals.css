@@ -35,10 +35,6 @@ body::-webkit-scrollbar{
   width: 100%;
 }
 
-body {
-  background-color: #FFFEFD;
-}
-
 img,
 video {
   height: auto;
