@@ -2,7 +2,7 @@
 
 import { SkillsByType } from '@/api/skill';
 import { getRouteForSkill } from '@/lib/router';
-import MenuList from '@/components/Navbar/SkillsMenu/MenuList';
+import MenuList from '@/components/Navbar/MenuList/MenuList';
 import Dropdown from '@/components/UI/Dropdown/Dropdown';
 
 type SkillsMenuProps = {

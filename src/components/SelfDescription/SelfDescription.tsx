@@ -14,6 +14,7 @@ const SelfDescription = async () => {
   return (
     <>
       <div className={'fullHeightFlexContainer hidden md:flex'}>
+        {/* Desktop component */}
         <div className={'layoutWrapper'}>
           <Grid>
             <Grid
@@ -40,6 +41,7 @@ const SelfDescription = async () => {
           </Grid>
         </div>
       </div>
+      {/* Mobile component */}
       <div className={'flex flex-col gap-4 px-5 my-12 md:hidden'}>
         <div className="flex gap-4">
           <Image className={cn(css.pictureWrapperImgMobile)} src={me} alt={'Picture of me'}/>

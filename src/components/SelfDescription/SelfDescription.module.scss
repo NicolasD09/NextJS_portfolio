@@ -6,10 +6,10 @@
     content: '';
     display: block;
     border-radius: 9999px;
-    background: #5714B0;
+    background: var(--green);
     filter: blur(60px);
-    top: -3%;
-    right: -12%;
+    top: -5%;
+    right: -9%;
     position: absolute;
     height: clamp(130px, 12vw, 250px);
     width: clamp(130px, 12vw, 250px);
@@ -20,10 +20,10 @@
     content: '';
     display: block;
     border-radius: 9999px;
-    background: #DC6D02;
+    background: var(--dark-purple);
     filter: blur(60px);
-    bottom: -3%;
-    left: -8%;
+    bottom: -6%;
+    left: -5%;
     position: absolute;
     height: clamp(130px, 12vw, 250px);
     width: clamp(130px, 12vw, 250px);
@@ -52,7 +52,7 @@
 .descriptionTitle {
   @apply font-title;
   font-size: clamp(28px, 4vw, 56px);
-  background: var(--gradient);
+  background: var(--gradient-purple-to-pink);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

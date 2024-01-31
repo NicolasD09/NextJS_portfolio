@@ -1,6 +1,6 @@
 'use client'
 
-import MenuList from '@/components/Navbar/SkillsMenu/MenuList';
+import MenuList from '@/components/Navbar/MenuList/MenuList';
 import { getRouteForProject } from '@/lib/router';
 import { ProjectWithSkills } from '@/api/projects';
 import Dropdown from '@/components/UI/Dropdown/Dropdown';

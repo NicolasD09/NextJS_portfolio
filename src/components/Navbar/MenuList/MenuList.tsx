@@ -1,7 +1,7 @@
 'use client'
 
 import * as Dd from '@radix-ui/react-dropdown-menu'
-import css from './SkillsMenuList.module.scss'
+import css from './MenuList.module.scss'
 import Link from 'next/link';
 
 type Item = {
@@ -9,10 +9,13 @@ type Item = {
   title: string;
 }
 
+// eslint-disable-next-line no-unused-vars
+type GetRouteFn = (item: Item) => string;
+
 type SkillsMenuListProps = {
   items: Item[],
   title?: string,
-  getRoute: (item: Item) => string;
+  getRoute: GetRouteFn;
 }
 
 const MenuList = ({ items, title, getRoute }: SkillsMenuListProps) => {

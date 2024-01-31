@@ -16,8 +16,8 @@
 
 .project {
   padding: 1rem;
-  transform: rotate(-1.5deg);
-  @apply flex flex-col gap-4 border border-gray-300 rounded-md justify-between;
+  min-height: 350px;
+  @apply flex flex-col border border-gray-300 rounded-md justify-between;
   box-shadow: 0 4px 16px 0 rgba(210, 115, 20, 0.12);
 
   &Header {
@@ -30,7 +30,7 @@
   }
 
   &Content {
-    @apply flex flex-col gap-4;
+    @apply flex flex-col gap-8;
   }
 }
 
@@ -104,9 +104,8 @@
 
 .embla {
   --slide-spacing: 2rem;
-  --slide-size: 33%;
+  --slide-size: 32%;
   --slide-height: auto;
-  //padding: 1.6rem;
   height: 100%;
 }
 
@@ -115,7 +114,6 @@
   display: flex;
   height: 100%;
   align-items: center;
-  //cursor: url('../../../public/cursor.svg') 24 24, auto;
 }
 
 .emblaContainer {

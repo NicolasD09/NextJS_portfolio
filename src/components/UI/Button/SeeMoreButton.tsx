@@ -13,7 +13,7 @@ const SeeMoreButton = ({ to, label }: SeeMoreProps) => {
       <span className={css.seeMoreWrapper}>
         <span>{usedLabel}</span>
         <span className={css.seeMoreIcon}>
-          <ArrowRight/>
+          <ArrowRight className={css.seeMoreIcon}/>
         </span>
       </span>
     </Link>
