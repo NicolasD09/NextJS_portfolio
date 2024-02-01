@@ -12,13 +12,19 @@
   width: 100%;
   max-width: 100vw;
   height: 100%;
+  cursor: w-resize;
 }
 
 .project {
   padding: 1rem;
   min-height: 350px;
-  @apply flex flex-col border border-gray-300 rounded-md justify-between;
-  box-shadow: 0 4px 16px 0 rgba(210, 115, 20, 0.12);
+  @apply flex flex-col gap-4 border border-gray-300 rounded-md justify-between;
+  box-shadow: 0 4px 16px 0 rgba(33, 98, 90, 0.15);
+  background-color: var(--background);
+
+  & span{
+    z-index: 1;
+  }
 
   &Header {
     @apply flex flex-col items-center gap-4;
@@ -38,8 +44,9 @@
   position: relative;
   width: fit-content;
   font-size: clamp(14px, 2vw, 16px);
+
   &:before {
-    z-index: -1;
+    z-index: 0;
     content: '';
     position: absolute;
     left: -4px;
@@ -51,7 +58,7 @@
   }
 
   &:after {
-    z-index: -1;
+    z-index: 0;
     content: '';
     position: absolute;
     transform: rotate(-2deg);

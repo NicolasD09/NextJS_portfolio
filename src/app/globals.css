@@ -10,7 +10,7 @@ body::-webkit-scrollbar{
 }
 
 :root {
-  --gradient: linear-gradient(90deg, #DE9127 0%, #EA7A69 32.73%, #CFA4D5 63.84%, #7058EC 100%);
+  --background: #F5F4F1;
   --gradient2: linear-gradient(60deg, #F68B7B 0%, #FFF1D7 100%);
   --gradient-purple-to-pink: linear-gradient(88deg, #8F5992 0%, #C85C92 44%, #F28686 100%);
   --gradient-coral-to-pink: linear-gradient(75deg, #ee8181 0%, #fdb7be 65%);
