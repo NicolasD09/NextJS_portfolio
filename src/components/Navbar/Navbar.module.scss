@@ -1,13 +1,42 @@
 .navbar {
   @apply mix-blend-difference
-        text-white
-        fixed
-        top-0
-        left-1/2
-        -translate-x-1/2
-        z-50
-        flex
-        justify-between
-        items-center
-        h-[80px]
+  text-white
+  fixed
+  top-0
+  left-1/2
+  -translate-x-1/2
+  z-50
+  justify-between
+  items-center
+  h-[80px]
+  min-w-0;
+}
+
+.DialogOverlay {
+  background: rgba(0 0 0 / 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.DialogContent {
+  width: 90%;
+  background: white;
+  padding: 48px 16px 16px 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.DialogCloseButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }

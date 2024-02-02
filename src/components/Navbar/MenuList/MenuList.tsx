@@ -3,14 +3,7 @@
 import * as Dd from '@radix-ui/react-dropdown-menu'
 import css from './MenuList.module.scss'
 import Link from 'next/link';
-
-type Item = {
-  slug: string;
-  title: string;
-}
-
-// eslint-disable-next-line no-unused-vars
-type GetRouteFn = (item: Item) => string;
+import { GetRouteFn, Item } from '@/components/types';
 
 type SkillsMenuListProps = {
   items: Item[],
@@ -19,7 +12,6 @@ type SkillsMenuListProps = {
 }
 
 const MenuList = ({ items, title, getRoute }: SkillsMenuListProps) => {
-  console.log('items', items)
   return (
     <div>
       {
