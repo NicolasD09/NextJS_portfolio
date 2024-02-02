@@ -38,7 +38,6 @@ const Article = ({
       <div className={css.articleImage}>
         <Image
           src={randImg}
-          objectPosition={'center center'}
           objectFit={'cover'}
           alt={'Background image'}
           fill={true}
