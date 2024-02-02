@@ -27,6 +27,8 @@ const Article = ({
   goBackButtonTitle,
   goBackButtonRoute
 } : ArticleProps) => {
+  const randInt = Math.floor(Math.random() * (10 - 1 + 1) + 1)
+  const randImg = `/images/${randInt}.webp`;
   return (
     <div className={css.articleWrapper}>
       <div className={cn('layoutWrapper', css.articleHeader)}>
@@ -35,11 +37,12 @@ const Article = ({
       </div>
       <div className={css.articleImage}>
         <Image
-          src={'/home_background.png'}
+          src={randImg}
+          objectPosition={'center center'}
+          objectFit={'cover'}
           alt={'Background image'}
           fill={true}
-          placeholder={'blur'}
-          blurDataURL={'/home_background_preload.png'}
+          quality={100}
         />
       </div>
       <div className={'layoutWrapper'}>
