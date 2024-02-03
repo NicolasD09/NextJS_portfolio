@@ -1,11 +1,20 @@
+.articleWrapper {
+  overflow: hidden;
+  & p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  & h3 {
+    margin-top: 32px;
+    @apply text-xl font-bold;
+  }
+}
+
 .articleTitle {
   @apply font-title;
   font-size: clamp(38px, calc(1rem + 2vw), 58px);
   letter-spacing: 1px;
-}
-
-.articleWrapper h3 {
-  @apply text-xl font-bold;
 }
 
 .articleDescription {
@@ -20,8 +29,14 @@
   @apply flex flex-col gap-8 content-start;
 }
 
-// select all paragraphs after a h3
-.articleContent h3 ~ p {
-  margin-top: 16px;
-  margin-bottom: 32px;
+.imageContainer {
+  width: min(90%, 950px);
+  margin-inline: auto;
+}
+
+.image {
+  object-fit: contain;
+  position: relative !important;
+  height: unset !important;
+  margin-inline: auto;
 }
