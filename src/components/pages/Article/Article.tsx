@@ -16,7 +16,7 @@ export type ArticleProps = {
   linkedItemsTitle?: string,
   goBackButtonTitle: string,
   goBackButtonRoute: Route,
-  assets: Map<string, Asset>
+  assets?: Map<string, Asset>
 }
 const Article = ({
   title,
@@ -34,6 +34,9 @@ const Article = ({
   const renderElementOptions = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+        if(!assets) {
+          return null;
+        }
         const newNode = assets.get(node.data.target.sys.id)!;
         const file = newNode.fields.file! as AssetFile;
 
