@@ -1,3 +1,4 @@
+'use client'
 import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
 import { Asset, AssetFile, Entry, EntrySkeletonType } from 'contentful';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
@@ -6,6 +7,8 @@ import Image from 'next/image';
 import css from './Article.module.scss'
 import cn from 'classnames'
 import Link from 'next/link';
+import ImageRenderer from '@/components/pages/Article/ImageRenderer';
+
 type Document = { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
 
 export type ArticleProps = {
@@ -18,6 +21,9 @@ export type ArticleProps = {
   goBackButtonRoute: Route,
   assets?: Map<string, Asset>
 }
+
+
+
 const Article = ({
   title,
   description,
@@ -42,10 +48,9 @@ const Article = ({
 
         return (
           <div className={css.imageContainer}>
-            <Image
-              src={`https://${file.url}`}
+            <ImageRenderer
+              url={file.url}
               alt={String(newNode.fields?.title) ?? ''}
-              fill={true}
               className={css.image}
             />
           </div>
