@@ -1,11 +1,8 @@
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { getProjectForSlugURL, PROJECTS_URL, requestOptions } from '@/lib/contentful';
 import { IProject } from '../../contentfulTypes';
-import { Asset, Entry, EntrySkeletonType } from 'contentful';
 import {
   getLinkedDataForResponse,
-  getAssetsMapForResponse,
-  getEntryContent,
   getSkillsMapForResponse,
   mapProject,
   mapProjectSkills
