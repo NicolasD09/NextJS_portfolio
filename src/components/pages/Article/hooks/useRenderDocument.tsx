@@ -4,7 +4,7 @@ import { Asset } from 'contentful';
 import useRenderElementOptions from '@/components/pages/Article/hooks/useRenderElementOptions';
 
 
-const useRenderDocument = (assets: Map<string, Asset> | undefined) => {
+const useRenderDocument = (assets: Map<string, Asset> | undefined = undefined) => {
   const options = useRenderElementOptions(assets)
   const renderElement = (document: Document) => {
     return documentToReactComponents(document, options)

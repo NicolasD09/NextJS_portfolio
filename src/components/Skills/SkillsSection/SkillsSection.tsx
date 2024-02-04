@@ -4,7 +4,7 @@ import css from './style.module.scss'
 import cn from 'classnames';
 import Link from 'next/link';
 import { getRouteForSkill } from '@/lib/router';
-import { Skill } from '../../../contentfulTypes';
+import { Skill } from '../../../../contentfulTypes';
 
 const SkillsList = ({ skills }: {skills: Skill[]}) => {
   return (

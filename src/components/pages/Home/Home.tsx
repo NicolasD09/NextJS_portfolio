@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import SelfDescription from '@/components/SelfDescription/SelfDescription';
-import SkillsSection from '@/components/SkillsSection';
+import SkillsSection from '../../Skills/SkillsSection';
 import { getSkills } from '@/api/skill';
 import ProjectsSection from '@/components/ProjectsSection/ProjectsSection';
 import { getAllProjects } from '@/api/projects';

@@ -1,0 +1,9 @@
+.skillsContainer {
+  @apply pt-40 pb-12;
+  width: min(90%, 1100px);
+  margin-inline: auto;
+}
+
+.skillsListContainer {
+  @apply gap-20;
+}
