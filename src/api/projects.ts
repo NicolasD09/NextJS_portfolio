@@ -6,8 +6,8 @@ import {
   getSkillsMapForResponse,
   mapProject,
   mapProjectSkills
-} from '@/types/api';
-import { MapSkillsFn, Skill } from '@/utils/apiResponse';
+} from '@/utils/apiResponse';
+import { MapSkillsFn, Skill } from '@/types/api';
 
 export type ProjectWithSkills = IProject & { skills: Skill[] }
 export const getProjectBySlug = async (slug: string) => {

@@ -16,6 +16,7 @@ export default async function Page(){
             <span>{skill.title}</span>
             <span>/{skill.slug}</span>
             <span>{skill.projectType}</span>
+            <span>{skill.skillLevel}</span>
           </div>
         })}
       </div>

@@ -1,11 +1,12 @@
-import { AllSkills, PartialSkill } from '@/api/skill';
+import { AllSkills } from '@/api/skill';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import css from './style.module.scss'
 import cn from 'classnames';
 import Link from 'next/link';
 import { getRouteForSkill } from '@/lib/router';
+import { ISkill } from '../../../contentfulTypes';
 
-const SkillsList = ({ skills }: {skills: PartialSkill[]}) => {
+const SkillsList = ({ skills }: {skills: ISkill[]}) => {
   return (
     <div className={css.skillsList}>
       {
