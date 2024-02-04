@@ -1,9 +1,14 @@
 .skillsContainer {
-  @apply pt-40 pb-12;
+  @apply pb-12;
   width: min(90%, 1100px);
   margin-inline: auto;
 }
 
 .skillsListContainer {
   @apply gap-20;
+}
+
+.pageTitle {
+  @apply font-title mt-32 mb-24;
+  font-size: clamp(28px, 6vw, 44px);
 }

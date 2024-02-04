@@ -17,7 +17,6 @@
 
 .project {
   padding: 1rem;
-  min-height: 350px;
   @apply flex flex-col gap-4 border border-gray-300 rounded-md justify-between;
   box-shadow: 0 4px 16px 0 rgba(33, 98, 90, 0.15);
   background-color: var(--background);

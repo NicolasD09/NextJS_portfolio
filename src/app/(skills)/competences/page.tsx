@@ -13,6 +13,7 @@ export default async function Page(){
     <>
       <Navbar skills={allSkills} projects={projects} />
       <div className={css.skillsContainer}>
+        <h1 className={css.pageTitle}>Compétences</h1>
         <Grid cols={2} className={css.skillsListContainer} >
           <Grid colSpan={2} mdColSpan={1} item>
             <SkillsList

@@ -1,6 +1,8 @@
 import { getSkills } from '@/api/skill';
 import Navbar from '@/components/Navbar/Navbar';
 import { getAllProjects } from '@/api/projects';
+import css from './style.module.scss'
+import { Project } from '@/components/ProjectsSection/Project';
 
 export default async function Page(){
   const allSkills = await getSkills();
@@ -8,15 +10,14 @@ export default async function Page(){
   
   return (
     <>
-      <Navbar skills={allSkills} projects={projects} />
-      <h1 className={'font-title text-2xl mb-4'}>Réalisations</h1>
-      <div>
-        {projects.map(skill => {
-          return <div key={skill.title} className={'flex gap-2 mb-2'}>
-            <span>{skill.title}</span>
-            <span>/{skill.slug}</span>
-          </div>
-        })}
+      <Navbar skills={allSkills} projects={projects}/>
+      <div className={css.projectsContainer}>
+        <h1 className={css.pageTitle}>Réalisations</h1>
+        <div className={css.projectsList}>
+          {projects.map((p, i) => {
+            return <Project key={p.slug} project={p} index={i}/>
+          })}
+        </div>
       </div>
     </>
   )
