@@ -8,7 +8,7 @@ const useRenderElementOptions = (assets: Map<string, Asset> | undefined) => {
   return useMemo(() => ({
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        if(!assets) {
+        if(!assets || assets.size === 0) {
           return null;
         }
         const newNode = assets.get(node.data.target.sys.id)!;
