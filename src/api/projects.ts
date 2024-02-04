@@ -1,15 +1,15 @@
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { getProjectForSlugURL, PROJECTS_URL, requestOptions } from '@/lib/contentful';
-import { IProject } from '../../contentfulTypes';
+import { Project } from '../../contentfulTypes';
 import {
   getLinkedDataForResponse,
   getSkillsMapForResponse,
   mapProject,
   mapProjectSkills
 } from '@/utils/apiResponse';
-import { MapSkillsFn, Skill } from '@/types/api';
+import { MapSkillsFn, PartialSkill } from '@/types/api';
 
-export type ProjectWithSkills = IProject & { skills: Skill[] }
+export type ProjectWithSkills = Project & { skills: PartialSkill[] }
 export const getProjectBySlug = async (slug: string) => {
   const response = await fetch(
     getProjectForSlugURL(slug),

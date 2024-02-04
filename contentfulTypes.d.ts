@@ -1,7 +1,7 @@
-import { Entry } from 'contentful';
-import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
+import { Entry, Asset } from "contentful";
+import { BLOCKS, NodeData, TopLevelBlock } from "@contentful/rich-text-types";
 export const Experience = 'experience'
-export interface IExperience {
+export interface Experience {
   //Experience
   /*  */
   readonly company?: string
@@ -15,20 +15,20 @@ export interface IExperience {
 }
 
 export const Project = 'project'
-export interface IProject {
+export interface Project {
   //Project
   /* Un article de type projet */
   readonly content: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly description: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly excerpt: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly projectType: string
-  readonly relatedSkills?: ReadonlyArray<Entry<ISkill>>
+  readonly relatedSkills?: ReadonlyArray<Entry<Skill>>
   readonly slug: string
   readonly title: string
 }
 
 export const SelfDescription = 'selfDescription'
-export interface ISelfDescription {
+export interface SelfDescription {
   //Self Description
   /*  */
   readonly content: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
@@ -39,14 +39,14 @@ export interface ISelfDescription {
 }
 
 export const Skill = 'skill'
-export interface ISkill {
+export interface Skill {
   //Skill
   /* Un article de type compétence */
   readonly content: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly description: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly excerpt: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly projectType: string
-  readonly relatedProjects?: ReadonlyArray<Entry<IProject>>
+  readonly relatedProjects?: ReadonlyArray<Entry<Project>>
   readonly skillLevel: string
   readonly slug: string
   readonly title: string

@@ -1,5 +1,5 @@
 import { getSkillForSlugURL, requestOptions, SKILLS_URL } from '@/lib/contentful';
-import { ISkill } from '../../contentfulTypes';
+import { Skill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { getLinkedDataForResponse, mapSkill } from '@/utils/apiResponse';
 
@@ -21,12 +21,12 @@ export const getSkillBySlug = async (slug: string) => {
 };
 
 export type SkillsByType =  {
-  technicalSkills: ISkill[],
-  humanSkills: ISkill[]
+  technicalSkills: Skill[],
+  humanSkills: Skill[]
 }
 
 export type AllSkills = {
-  skills: ISkill[];
+  skills: Skill[];
   skillsByType: SkillsByType;
 }
 export const getSkills = async (): Promise<AllSkills> => {
@@ -47,7 +47,7 @@ export const getSkills = async (): Promise<AllSkills> => {
   };
 }
 
-function getSortedSkillsForType(skills: ISkill[], projectType: string) {
+function getSortedSkillsForType(skills: Skill[], projectType: string) {
   return skills
     .filter(skill => skill.projectType === projectType)
     .sort((a, b) => a.title.localeCompare(b.title))

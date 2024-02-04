@@ -8,7 +8,7 @@ const path = require('path')
 const Rx = require('rx')
 
 require('dotenv').config()
-const toInterfaceName = (s, prefix = '') => {
+const toInterfaceName = (s, prefix = 'I') => {
   s.replace(/-[[:alnum:]]/gm, (match) => { console.log('Match', match); return match.slice(1).toUpperCase()})
   return prefix + s.charAt(0).toUpperCase() + s.slice(1)
     .replace(/-[A-Za-z0-9_]/g, (match) => match.slice(1).toUpperCase())
@@ -28,6 +28,7 @@ const concatLinkTypes = (prefix, linkContentType) =>
     : toInterfaceName(linkContentType, prefix)
 
 const formatType = (field, prefix = '', isArray = false) => {
+  console.log('format field', field)
   const type = field.type
   switch (type) {
   case 'Text':

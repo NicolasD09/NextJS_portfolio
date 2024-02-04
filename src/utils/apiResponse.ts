@@ -1,7 +1,7 @@
 import { Asset, Entry, EntrySkeletonType } from 'contentful';
-import { IProject, ISkill } from '../../contentfulTypes';
+import { Project, Skill } from '../../contentfulTypes';
 import { ProjectWithSkills } from '@/api/projects';
-import { MapSkillsFn, Skill, SkillLevel } from '@/types/api';
+import { MapSkillsFn, PartialSkill as CustomSkill, SkillLevel } from '@/types/api';
 
 export const getEntryContent = (response: any): Entry[] => response.hasOwnProperty('includes') ? response.includes['Entry'] : [];
 export const getAssetContent = (response: any): Asset[] => response.hasOwnProperty('includes') ? response.includes['Asset'] : [];
@@ -35,12 +35,12 @@ export const mapProjectSkills = (map: Map<string, Entry>) => (skill: Entry) => {
   return ({
     slug: relatedSkill.fields.slug,
     title: relatedSkill.fields.title
-  } as Skill)
+  } as CustomSkill)
 }
 
 export const mapProject = (mapSkills: MapSkillsFn) => (project: EntrySkeletonType) => {
-  const fields = project.fields as IProject;
-  const skills: Skill[] = fields.relatedSkills!.map(mapSkills);
+  const fields = project.fields as Project;
+  const skills: CustomSkill[] = fields.relatedSkills!.map(mapSkills);
 
   return {
     ...fields,
@@ -55,7 +55,7 @@ export const getLinkedDataForResponse = (response: object) => {
   }
 }
 
-export const mapSkill = (item: any): ISkill => {
+export const mapSkill = (item: any): Skill => {
   return ({
     ...item.fields,
     // @ts-ignore

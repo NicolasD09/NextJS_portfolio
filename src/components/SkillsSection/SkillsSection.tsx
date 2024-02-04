@@ -4,9 +4,9 @@ import css from './style.module.scss'
 import cn from 'classnames';
 import Link from 'next/link';
 import { getRouteForSkill } from '@/lib/router';
-import { ISkill } from '../../../contentfulTypes';
+import { Skill } from '../../../contentfulTypes';
 
-const SkillsList = ({ skills }: {skills: ISkill[]}) => {
+const SkillsList = ({ skills }: {skills: Skill[]}) => {
   return (
     <div className={css.skillsList}>
       {
