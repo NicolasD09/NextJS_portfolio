@@ -28,7 +28,6 @@ const concatLinkTypes = (prefix, linkContentType) =>
     : toInterfaceName(linkContentType, prefix)
 
 const formatType = (field, prefix = '', isArray = false) => {
-  console.log('format field', field)
   const type = field.type
   switch (type) {
   case 'Text':
