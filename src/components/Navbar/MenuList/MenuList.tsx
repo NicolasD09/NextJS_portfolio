@@ -4,6 +4,7 @@ import * as Dd from '@radix-ui/react-dropdown-menu'
 import css from './MenuList.module.scss'
 import Link from 'next/link';
 import { GetRouteFn, Item } from '@/components/types';
+import cn from 'classnames';
 
 type SkillsMenuListProps = {
   items: Item[],
@@ -18,7 +19,9 @@ const MenuList = ({ items, title, getRoute }: SkillsMenuListProps) => {
         title &&
       <Dd.Label className={css.menuListTitle}>{title}</Dd.Label>
       }
-      <Dd.Group className={css.menuListGroup}>
+      <Dd.Group className={cn(css.menuListGroup, {
+        [css.hasTitle]: !!title
+      })}>
         {
           items.map(item => (
             <Link
