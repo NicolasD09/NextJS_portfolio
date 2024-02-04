@@ -22,8 +22,6 @@ export type ArticleProps = {
   assets?: Map<string, Asset>
 }
 
-
-
 const Article = ({
   title,
   description,
@@ -61,6 +59,7 @@ const Article = ({
 
   return (
     <div className={css.articleWrapper}>
+      {/* Header */}
       <div className={cn('layoutWrapper', css.articleHeader)}>
         <h1 className={css.articleTitle}>{title}</h1>
         <div className={css.articleDescription}>{renderElement(description, renderElementOptions)}</div>
@@ -74,7 +73,8 @@ const Article = ({
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className={cn('layoutWrapper', css.article)}>
+      {/* Content */}
+      <div className={cn(css.articleContentWrapper)}>
         <div className={css.articleContent}>{renderElement(content, renderElementOptions)}</div>
         {linkedItems && linkedItems.map(item => <span key={Math.random()}>{JSON.stringify(item)}</span>)}
         <p>{linkedItemsTitle}</p>

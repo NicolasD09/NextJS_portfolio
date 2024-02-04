@@ -1,13 +1,20 @@
 import { getSkillForSlugURL, requestOptions, SKILLS_URL } from '@/lib/contentful';
 import { ISkill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
+import { getLinkedDataForResponse } from '@/types/api';
 
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
     getSkillForSlugURL(slug),
     { ...requestOptions }).then(resp => resp.json())
 
-  return response.items[0].fields as unknown as ISkill;
+  const { assets, entries } = getLinkedDataForResponse(response)
+
+  return {
+    data: response.items[0].fields as unknown as ISkill,
+    assets,
+    entries
+  };
 };
 
 export type PartialSkill = Pick<ISkill, 'title' | 'projectType' | 'slug'>;

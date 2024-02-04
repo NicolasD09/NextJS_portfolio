@@ -1,8 +1,7 @@
 .articleWrapper {
   overflow: hidden;
   & p {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    @apply my-8;
   }
 
   & h3 {
@@ -38,5 +37,11 @@
   object-fit: contain;
   position: relative !important;
   height: unset !important;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.articleContentWrapper {
+  width: min(90%, 950px);
   margin-inline: auto;
 }

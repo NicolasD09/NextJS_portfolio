@@ -13,7 +13,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const slug = params.slug
 
-  const skill = await getSkillBySlug(slug);
+  const { data: skill } = await getSkillBySlug(slug);
 
   return {
     title: `Compétence - ${skill.title}`
@@ -21,7 +21,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: Props) {
-  const skill = await getSkillBySlug(params.slug);
+  const { data: skill, assets } = await getSkillBySlug(params.slug);
   const allSkills = await getSkills()
   const projects = await getAllProjects()
 
@@ -35,6 +35,7 @@ export default async function Page({ params }: Props) {
       title={skill.title}
       linkedItems={[]}
       linkedItemsTitle={'Projets liés'}
+      assets={assets}
     />
   </div>
 }
