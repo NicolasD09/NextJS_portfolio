@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+import { getRouteFn } from '@/types';
+
 enum Route {
   // eslint-disable-next-line no-unused-vars
   ABOUT_PAGE = '/a-propos',
@@ -8,11 +9,11 @@ enum Route {
   PROJECTS = '/projets'
 }
 
-const getRouteForSkill = (skill: {slug: string}) => {
+const getRouteForSkill: getRouteFn = (skill: {slug: string}) => {
   return `${Route.SKILLS}/${skill.slug}`
 }
 
-const getRouteForProject = (project: {slug: string}) => {
+const getRouteForProject: getRouteFn = (project: {slug: string}) => {
   return `${Route.PROJECTS}/${project.slug}`
 }
 

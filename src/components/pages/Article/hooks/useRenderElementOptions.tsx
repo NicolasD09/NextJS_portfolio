@@ -4,28 +4,25 @@ import css from '@/components/pages/Article/Article.module.scss';
 import ImageRenderer from '@/components/pages/Article/ImageRenderer';
 import { useMemo } from 'react';
 
-const useRenderElementOptions = (assets: Map<string, Asset> | undefined) => {
+const useRenderElementOptions = () => {
   return useMemo(() => ({
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        if(!assets || assets.size === 0) {
-          return null;
-        }
-        const newNode = assets.get(node.data.target.sys.id)!;
-        const file = newNode.fields.file! as AssetFile;
+        const fields = node.data.target.fields;
+        const file = fields.file as AssetFile;
 
         return (
           <div className={css.imageContainer}>
             <ImageRenderer
               url={file.url}
-              alt={String(newNode.fields?.title) ?? ''}
+              alt={String(fields.title) ?? ''}
               className={css.image}
             />
           </div>
         );
       },
     }
-  }), [assets]);
+  }), []);
 }
 
 export default useRenderElementOptions;

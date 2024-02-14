@@ -36,7 +36,7 @@ export const getSkillForSlugURL = (slug: string) => {
 }
 
 export const getProjectForSlugURL = (slug: string) => {
-  return `${PROJECTS_URL}&fields.slug[match]=${slug}`
+  return `${PROJECTS_URL}&fields.slug[match]=${slug}&limit=1`
 }
 
 export const getSelfDescriptionUrl = () => {

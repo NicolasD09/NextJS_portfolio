@@ -1,7 +1,7 @@
 import { Asset, Entry, EntrySkeletonType } from 'contentful';
 import { Project, Skill } from '../../contentfulTypes';
 import { ProjectWithSkills } from '@/api/projects';
-import { MapSkillsFn, PartialSkill as CustomSkill, SkillLevel } from '@/types/api';
+import { MapSkillsFn, ContentfulEntryLink, SkillLevel } from '@/types/api';
 
 export const getEntryContent = (response: any): Entry[] => response.hasOwnProperty('includes') ? response.includes['Entry'] : [];
 export const getAssetContent = (response: any): Asset[] => response.hasOwnProperty('includes') ? response.includes['Asset'] : [];
@@ -35,12 +35,12 @@ export const mapProjectSkills = (map: Map<string, Entry>) => (skill: Entry) => {
   return ({
     slug: relatedSkill.fields.slug,
     title: relatedSkill.fields.title
-  } as CustomSkill)
+  } as ContentfulEntryLink)
 }
 
 export const mapProject = (mapSkills: MapSkillsFn) => (project: EntrySkeletonType) => {
   const fields = project.fields as Project;
-  const skills: CustomSkill[] = fields.relatedSkills!.map(mapSkills);
+  const skills: ContentfulEntryLink[] = fields.relatedSkills!.map(mapSkills);
 
   return {
     ...fields,

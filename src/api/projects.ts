@@ -2,30 +2,23 @@ import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { getProjectForSlugURL, PROJECTS_URL, requestOptions } from '@/lib/contentful';
 import { Project } from '../../contentfulTypes';
 import {
-  getLinkedDataForResponse,
   getSkillsMapForResponse,
   mapProject,
   mapProjectSkills
 } from '@/utils/apiResponse';
-import { MapSkillsFn, PartialSkill } from '@/types/api';
+import { MapSkillsFn, ContentfulEntryLink } from '@/types/api';
+import resolveResponse from 'contentful-resolve-response';
 
-export type ProjectWithSkills = Project & { skills: PartialSkill[] }
+export type ProjectWithSkills = Project & { skills: ContentfulEntryLink[] }
 export const getProjectBySlug = async (slug: string) => {
   const response = await fetch(
     getProjectForSlugURL(slug),
     { ...requestOptions }).then(resp => resp.json())
 
-  const skillsMapForResponse = getSkillsMapForResponse(response);
-  const mapSkills: MapSkillsFn = mapProjectSkills(skillsMapForResponse);
-  const mapSingleProject = mapProject(mapSkills)
-
-  const { assets, entries } = getLinkedDataForResponse(response)
-  const project = mapSingleProject(response.items[0]) as ProjectWithSkills
+  const project: Project = resolveResponse(response)[0].fields
 
   return {
-    data: project,
-    assets,
-    entries
+    data: project
   }
 
 };

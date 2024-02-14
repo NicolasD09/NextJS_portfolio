@@ -2,21 +2,17 @@ import { getSkillForSlugURL, requestOptions, SKILLS_URL } from '@/lib/contentful
 import { Skill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { getLinkedDataForResponse, mapSkill } from '@/utils/apiResponse';
-
+import resolveResponse from 'contentful-resolve-response';
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
     getSkillForSlugURL(slug),
     requestOptions)
     .then(resp => resp.json())
 
-  console.log(response)
-
-  const { assets, entries } = getLinkedDataForResponse(response)
-
+  const skill = resolveResponse(response)[0].fields
+  console.log(skill)
   return {
-    data: mapSkill(response.items[0]),
-    assets,
-    entries
+    data: skill
   };
 };
 
