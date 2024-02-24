@@ -2,7 +2,6 @@ import { Route } from '@/lib/router';
 import Image from 'next/image';
 import css from './Article.module.scss'
 import cn from 'classnames'
-import Link from 'next/link';
 import useRenderDocument from '@/components/pages/Article/hooks/useRenderDocument';
 import { getRouteFn } from '@/types';
 import { Project, Skill } from '../../../../contentfulTypes';
