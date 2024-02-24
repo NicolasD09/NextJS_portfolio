@@ -5,10 +5,23 @@
 }
 
 .seeMoreIcon {
-  transition: all .3s ease-in-out;
   fill: var(--coral);
+}
+
+.seeMoreIcon,
+.goBackIcon {
+  transition: all .3s ease-in-out;
 }
 
 .seeMoreWrapper:hover .seeMoreIcon {
   transform: translateX(4px);
+}
+
+.goBackWrapper {
+  @apply flex gap-2 items-center;
+
+  &:hover .goBackIcon {
+    transform: translateX(-4px);
+  }
+
 }

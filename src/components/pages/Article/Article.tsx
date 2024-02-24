@@ -1,4 +1,3 @@
-import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
 import { Route } from '@/lib/router';
 import Image from 'next/image';
 import css from './Article.module.scss'
@@ -6,18 +5,18 @@ import cn from 'classnames'
 import Link from 'next/link';
 import useRenderDocument from '@/components/pages/Article/hooks/useRenderDocument';
 import { getRouteFn } from '@/types';
-import { EntrySkeletonType } from 'contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Project, Skill } from '../../../../contentfulTypes';
-
-type Document = { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
+import { Entry } from 'contentful';
+import LinkedItems from '@/components/LinkedItems/LinkedItems';
+import GoBackButton from '@/components/UI/Button/GoBackButton';
 
 type ArticleProps = {
   data: Skill | Project,
   linkedItemsTitle?: string,
   goBackButtonTitle: string,
   goBackButtonRoute: Route,
-  getRoute: getRouteFn
+  getItemRouteUrl: getRouteFn,
+  linkedItems: ReadonlyArray<Entry>
 }
 
 const Article = ({
@@ -25,7 +24,8 @@ const Article = ({
   linkedItemsTitle,
   goBackButtonTitle,
   goBackButtonRoute,
-  getRoute
+  getItemRouteUrl,
+  linkedItems
 }: ArticleProps) => {
   const randInt = Math.floor(Math.random() * (10 - 1 + 1) + 1)
   const randImg = `/images/${randInt}.webp`;
@@ -49,15 +49,11 @@ const Article = ({
       {/* Content */}
       <div className={cn(css.articleContentWrapper)}>
         <div className={css.articleContent}>{renderElement(data.content)}</div>
-        <h3>{linkedItemsTitle}</h3>
-        <p>
-          {/*{linkedItems && linkedItems*/}
-          {/*  .map(item => (*/}
-          {/*    <Link key={item.title} href={getRoute(item)}>{item.title}</Link>*/}
-          {/*  ))*/}
-          {/*}*/}
-        </p>
-        <Link href={goBackButtonRoute}>{goBackButtonTitle}</Link>
+        <div className={css.linkedItemsContainer}>
+          <h3>{linkedItemsTitle}</h3>
+          <LinkedItems items={linkedItems}  getItemRouteUrl={getItemRouteUrl}/>
+        </div>
+        <GoBackButton to={goBackButtonRoute} label={goBackButtonTitle} />
       </div>
     </div>
   )

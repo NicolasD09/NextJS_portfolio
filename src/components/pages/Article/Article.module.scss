@@ -2,7 +2,7 @@
   overflow: hidden;
   padding-bottom: 48px;
   & p {
-    @apply my-8;
+    @apply my-4;
   }
 
   & h3 {
@@ -45,4 +45,9 @@
 .articleContentWrapper {
   width: min(90%, 950px);
   margin-inline: auto;
+  @apply flex flex-col gap-6 items-start;
+}
+
+.linkedItemsContainer {
+  @apply flex flex-col gap-2;
 }

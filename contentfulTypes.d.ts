@@ -1,6 +1,16 @@
-import { Entry, Asset } from "contentful";
-import { BLOCKS, NodeData, TopLevelBlock } from "@contentful/rich-text-types";
-export const Experience = 'experience'
+import { Entry, Asset } from 'contentful';
+import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
+import { Metadata } from 'contentful/dist/types/types/metadata';
+
+interface BaseEntry {
+  sys: {
+    contentType: {
+      sys: {
+        id: string;
+      };
+    };
+  };
+}
 export interface Experience {
   //Experience
   /*  */
@@ -14,7 +24,6 @@ export interface Experience {
   readonly title: string
 }
 
-export const Project = 'project'
 export interface Project {
   //Project
   /* Un article de type projet */
@@ -27,7 +36,6 @@ export interface Project {
   readonly title: string
 }
 
-export const SelfDescription = 'selfDescription'
 export interface SelfDescription {
   //Self Description
   /*  */
@@ -38,7 +46,6 @@ export interface SelfDescription {
   readonly title: string
 }
 
-export const Skill = 'skill'
 export interface Skill {
   //Skill
   /* Un article de type compétence */

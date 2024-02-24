@@ -30,9 +30,10 @@ export default async function Page({ params }: Props) {
     <Article
       data={skill}
       goBackButtonRoute={Route.SKILLS}
-      goBackButtonTitle={'Go back'}
+      goBackButtonTitle={'Retour aux compétences'}
       linkedItemsTitle={'Projets liés'}
-      getRoute={getRouteForProject}
+      getItemRouteUrl={getRouteForProject}
+      linkedItems={skill.relatedProjects ?? []}
     />
   </div>
 }

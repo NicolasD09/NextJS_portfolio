@@ -9,8 +9,8 @@ export const getSkillBySlug = async (slug: string) => {
     requestOptions)
     .then(resp => resp.json())
 
-  const skill = resolveResponse(response)[0].fields
-  console.log(skill)
+  const skill: Skill = resolveResponse(response)[0].fields as Skill
+
   return {
     data: skill
   };

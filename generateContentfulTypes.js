@@ -75,14 +75,14 @@ const formatType = (field, prefix = '', isArray = false) => {
   }
 }
 
-const writeTypesToFile = (types, outputFilePath, prefix, ignoredFields = [] ) => {
+const writeTypesToFile = (types, outputFilePath, prefix = '', ignoredFields = [] ) => {
   const items = types.items
   var stream = fs.createWriteStream(outputFilePath)
   stream.once('open', () => {
     stream.write('import { Entry, Asset } from "contentful";\n')
     stream.write('import { BLOCKS, NodeData, TopLevelBlock } from "@contentful/rich-text-types";\n')
     items.sort((a, b) => toInterfaceName(a.sys.id, prefix).localeCompare(toInterfaceName(b.sys.id, prefix))).forEach(item => {
-      stream.write(`export const ${item.sys.id.charAt(0).toUpperCase() + item.sys.id.slice(1)} = '${item.sys.id}'\n`)
+      // stream.w rite(`export const ${item.sys.id.charAt(0).toUpperCase() + item.sys.id.slice(1)} = '${item.sys.id}'\n`)
       stream.write(`export interface ${toInterfaceName(item.sys.id, prefix)} {\n`)
       stream.write(`  //${item.name}\n`)
       stream.write(`  /* ${item.description} */\n`)

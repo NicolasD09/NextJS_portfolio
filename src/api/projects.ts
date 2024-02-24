@@ -10,12 +10,15 @@ import { MapSkillsFn, ContentfulEntryLink } from '@/types/api';
 import resolveResponse from 'contentful-resolve-response';
 
 export type ProjectWithSkills = Project & { skills: ContentfulEntryLink[] }
-export const getProjectBySlug = async (slug: string) => {
+
+// @ts-ignore
+export const getProjectBySlug = async (slug: string): Promise<{data: Project}> => {
   const response = await fetch(
     getProjectForSlugURL(slug),
     { ...requestOptions }).then(resp => resp.json())
 
-  const project: Project = resolveResponse(response)[0].fields
+  // @ts-ignore
+  const project: Project = resolveResponse(response)[0].fields as Project
 
   return {
     data: project
