@@ -1,5 +1,6 @@
 import { getRouteFn } from '@/types';
 
+// eslint-disable-next-line no-unused-vars
 enum Route {
   // eslint-disable-next-line no-unused-vars
   ABOUT_PAGE = '/a-propos',
