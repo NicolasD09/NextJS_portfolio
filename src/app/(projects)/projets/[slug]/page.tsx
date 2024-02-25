@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { getSkills } from '@/api/skill';
 import Article from '@/components/pages/Article';
-import css from './style.module.scss'
 import { getRouteForSkill, Route } from '@/lib/router';
-import Navbar from '@/components/Navbar/Navbar';
-import { getAllProjects, getProjectBySlug } from '@/api/projects';
+import { getProjectBySlug } from '@/api/projects';
+import PageWrapper from '@/components/Page/Page';
 
 type Props = { params: { slug: string }}
 
@@ -22,11 +20,8 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const { data: project } = await getProjectBySlug(params.slug);
-  const allSkills = await getSkills()
-  const projects = await getAllProjects()
 
-  return <div className={css.skillPageWrapper}>
-    <Navbar skills={allSkills} projects={projects}/>
+  return <PageWrapper>
     <Article
       data={project}
       goBackButtonRoute={Route.PROJECTS}
@@ -35,5 +30,5 @@ export default async function Page({ params }: Props) {
       getItemRouteUrl={getRouteForSkill}
       linkedItems={project.relatedSkills ?? []}
     />
-  </div>
+  </PageWrapper>
 }

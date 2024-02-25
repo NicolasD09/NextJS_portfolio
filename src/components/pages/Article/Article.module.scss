@@ -21,10 +21,6 @@
   @apply md:w-3/5
 }
 
-.articleImage {
-  @apply h-[280px] overflow-hidden relative my-40
-}
-
 .articleHeader {
   @apply flex flex-col gap-8 content-start;
 }

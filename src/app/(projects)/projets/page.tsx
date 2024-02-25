@@ -1,16 +1,13 @@
-import { getSkills } from '@/api/skill';
-import Navbar from '@/components/Navbar/Navbar';
 import { getAllProjects } from '@/api/projects';
 import css from './style.module.scss'
 import { Project } from '@/components/ProjectsSection/Project';
+import PageWrapper from '@/components/Page/Page';
 
 export default async function Page(){
-  const allSkills = await getSkills();
   const projects = await getAllProjects();
-  
+
   return (
-    <>
-      <Navbar skills={allSkills} projects={projects}/>
+    <PageWrapper>
       <div className={css.projectsContainer}>
         <h1 className={css.pageTitle}>Réalisations</h1>
         <div className={css.projectsList}>
@@ -19,6 +16,6 @@ export default async function Page(){
           })}
         </div>
       </div>
-    </>
+    </PageWrapper>
   )
 }

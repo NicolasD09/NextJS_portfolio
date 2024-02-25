@@ -1,24 +1,31 @@
 import { getSelfDescription } from '@/api/selfDescription';
 import { Metadata } from 'next';
 import { documentToReactComponents as renderElement } from '@contentful/rich-text-react-renderer';
+import ArticleContainer from '@/components/pages/Article/ArticleContainer';
+import ArticleHeader from '@/components/pages/Article/ArticleHeader';
+import BannerImage from '@/components/BannerImage/BannerImage';
+import ArticleContentContainer from '@/components/pages/Article/ArticleContentContainer';
+import ArticleContent from '@/components/pages/Article/ArticleContent';
+import Page from '@/components/Page/Page';
 
 export const metadata: Metadata = {
   title: 'A propos',
 }
 const AboutPage = async() => {
-  const selfDescription = await getSelfDescription()
+  const selfDescription = await getSelfDescription();
 
   return (
-    <>
-      <div>
-        <p>{selfDescription.title}</p>
-        <div className={'flex flex-col gap-4'}>
-          <p>{selfDescription.subtitle}</p>
-          <>{renderElement(selfDescription.excerpt)}</>
-          <>{renderElement(selfDescription.content)}</>
-        </div>
-      </div>
-    </>
+    <Page>
+      <ArticleContainer>
+        <ArticleHeader title={selfDescription.title} content={selfDescription.subtitle}/>
+        <BannerImage/>
+        <ArticleContentContainer>
+          <ArticleContent>
+            {renderElement(selfDescription.content)}
+          </ArticleContent>
+        </ArticleContentContainer>
+      </ArticleContainer>
+    </Page>
   )
 }
 

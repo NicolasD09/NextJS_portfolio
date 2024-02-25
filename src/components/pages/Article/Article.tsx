@@ -1,13 +1,16 @@
 import { Route } from '@/lib/router';
-import Image from 'next/image';
-import css from './Article.module.scss'
-import cn from 'classnames'
 import useRenderDocument from '@/components/pages/Article/hooks/useRenderDocument';
 import { getRouteFn } from '@/types';
 import { Project, Skill } from '../../../../contentfulTypes';
 import { Entry } from 'contentful';
 import LinkedItems from '@/components/LinkedItems/LinkedItems';
 import GoBackButton from '@/components/UI/Button/GoBackButton';
+import BannerImage from '@/components/BannerImage/BannerImage';
+import ArticleContentContainer from '@/components/pages/Article/ArticleContentContainer';
+import ArticleContent from '@/components/pages/Article/ArticleContent';
+import LinkedItemsContainer from '@/components/pages/Article/LinkedItemsContainer';
+import ArticleHeader from '@/components/pages/Article/ArticleHeader';
+import ArticleContainer from '@/components/pages/Article/ArticleContainer';
 
 type ArticleProps = {
   data: Skill | Project,
@@ -26,35 +29,20 @@ const Article = ({
   getItemRouteUrl,
   linkedItems
 }: ArticleProps) => {
-  const randInt = Math.floor(Math.random() * (10 - 1 + 1) + 1)
-  const randImg = `/images/${randInt}.webp`;
+
   const { renderElement } = useRenderDocument()
   return (
-    <div className={css.articleWrapper}>
-      {/* Header */}
-      <div className={cn('layoutWrapper', css.articleHeader)}>
-        <h1 className={css.articleTitle}>{data.title}</h1>
-        <div className={css.articleDescription}>{renderElement(data.description)}</div>
-      </div>
-      <div className={css.articleImage}>
-        <Image
-          src={randImg}
-          alt={'Background image'}
-          fill={true}
-          quality={100}
-          style={{ objectFit: 'cover' }}
-        />
-      </div>
-      {/* Content */}
-      <div className={cn(css.articleContentWrapper)}>
-        <div className={css.articleContent}>{renderElement(data.content)}</div>
-        <div className={css.linkedItemsContainer}>
-          <h3>{linkedItemsTitle}</h3>
-          <LinkedItems items={linkedItems}  getItemRouteUrl={getItemRouteUrl}/>
-        </div>
+    <ArticleContainer>
+      <ArticleHeader title={data.title} content={renderElement(data.description)} />
+      <BannerImage/>
+      <ArticleContentContainer>
+        <ArticleContent>{renderElement(data.content)}</ArticleContent>
+        <LinkedItemsContainer title={linkedItemsTitle}>
+          <LinkedItems items={linkedItems} getItemRouteUrl={getItemRouteUrl}/>
+        </LinkedItemsContainer>
         <GoBackButton to={goBackButtonRoute} label={goBackButtonTitle} />
-      </div>
-    </div>
+      </ArticleContentContainer>
+    </ArticleContainer>
   )
 }
 
