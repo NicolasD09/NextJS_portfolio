@@ -33,6 +33,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
+
+  & * {
+    @apply font-extralight
+    uppercase
+    text-[14px];
+  }
 }
 
 .DialogCloseButton {

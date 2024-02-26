@@ -18,12 +18,12 @@ type AccordionTriggerElement = React.ElementRef<typeof CollapsiblePrimitive.Trig
 
 const Accordion = ({ skills, projects }: NavLinksProps) => {
   return (
-    <AccordionBase.Root type={'single'} collapsible>
+    <AccordionBase.Root type={'single'} collapsible className={'gap-6 flex-col flex'}>
       {/* Skills */}
       <AccordionBase.Item className={css.AccordionItem} value="skills">
         <AccordionTrigger>Compétences</AccordionTrigger>
         <AccordionContent>
-          <Grid cols={2} className={'gap-6'}>
+          <Grid cols={2} className={'flex gap-6'}>
             <Grid item>
               <LinksList items={skills.skillsByType.humanSkills} getRoute={getRouteForSkill} />
             </Grid>
@@ -46,7 +46,7 @@ const Accordion = ({ skills, projects }: NavLinksProps) => {
 
 const LinksList = ({ items, getRoute }:{items: Item[], getRoute: GetRouteFn}) => {
   return (
-    <div className={'flex flex-col gap-4'}>
+    <div className={'flex flex-col gap-5 py-3'}>
       {
         items.map((item) => (
           <Link

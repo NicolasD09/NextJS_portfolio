@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons'
 import Grid from '@/components/UI/Grid/Grid';
 import Accordion from '@/components/Navbar/Accordion';
+import { Route } from '@/lib/router';
 
 
 const MobileNavbar = ({ skills, projects }: NavLinksProps) => {
@@ -37,16 +38,12 @@ const MobileNavbar = ({ skills, projects }: NavLinksProps) => {
               <Dialog.Close onClick={closeModal} className={css.DialogCloseButton}>
                 <Cross1Icon/>
               </Dialog.Close>
-              <Grid colSpan={1} cols={2} className={'gap-4'}>
+              <Grid colSpan={1} cols={2} className={'gap-6'}>
                 <Grid item colSpan={2}>
                   <Accordion skills={skills} projects={projects}/>
                 </Grid>
                 <Grid item colSpan={2}>
-                  <div><span>Expériences</span>
-                  </div>
-                </Grid>
-                <Grid item colSpan={2}>
-                  <div><span>Contact</span></div>
+                  <Link href={Route.ABOUT_PAGE}>à propos</Link>
                 </Grid>
               </Grid>
             </Dialog.Content>
