@@ -17,7 +17,7 @@ const AboutPage = async() => {
   return (
     <Page>
       <ArticleContainer>
-        <ArticleHeader title={selfDescription.title} content={selfDescription.subtitle}/>
+        <ArticleHeader title={'Qui suis-je'} content={renderElement(selfDescription.excerpt)}/>
         <BannerImage/>
         <ArticleContentContainer>
           <ArticleContent>
