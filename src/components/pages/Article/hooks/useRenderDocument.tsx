@@ -5,7 +5,10 @@ import useRenderElementOptions from '@/components/pages/Article/hooks/useRenderE
 
 const useRenderDocument = () => {
   const options = useRenderElementOptions()
-  const renderElement = (document: Document) => {
+  const renderElement = (document: Document | null | undefined) => {
+    if(!document) {
+      return null;
+    }
     return documentToReactComponents(document, options)
   }
 

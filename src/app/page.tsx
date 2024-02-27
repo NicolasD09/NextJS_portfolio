@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Navbar from '@/components/Navbar/Navbar';
 import { getSkills } from '@/api/skill';
 import { getAllProjects } from '@/api/projects';
+import { getAllExperiences } from '@/api/experiences';
 
 export const metadata: Metadata = {
   title: 'Nicolas DURPOIX',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default async function IndexPage() {
   const skills = await getSkills()
   const projects = await getAllProjects()
+  const xp = getAllExperiences()
   return (
     <>
       <Navbar skills={skills} projects={projects}/>

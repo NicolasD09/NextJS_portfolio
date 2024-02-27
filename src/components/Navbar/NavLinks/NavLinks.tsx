@@ -18,7 +18,9 @@ const NavLinks = ( { skills, projects } : NavLinksProps) => {
       <Link href={Route.ABOUT_PAGE} >
           à propos
       </Link>
-      <span>Expériences</span>
+      <Link href={Route.EXPERIENCES} >
+        mon parcours
+      </Link>
     </div>
   )
 }

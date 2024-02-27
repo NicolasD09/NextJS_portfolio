@@ -54,3 +54,9 @@ video {
 /* Style for the navbar dropdown menus */
 [data-radix-popper-content-wrapper] { top: 8px !important; }
 
+ul {
+  list-style: disc;
+  padding-left: 32px;
+}
+
+

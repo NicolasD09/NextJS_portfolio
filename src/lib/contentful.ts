@@ -31,6 +31,8 @@ export const PROJECTS_URL = contentTypeURL('project');
 
 export const SELF_DESCRIPTION_URL = contentTypeURL('selfDescription')
 
+export const EXPERIENCES_URL = contentTypeURL('experience')
+
 export const getSkillForSlugURL = (slug: string) => {
   return `${SKILLS_URL}&fields.slug[match]=${slug}`
 }
@@ -41,4 +43,8 @@ export const getProjectForSlugURL = (slug: string) => {
 
 export const getSelfDescriptionUrl = () => {
   return `${SELF_DESCRIPTION_URL}&order=sys.createdAt&limit=1`
+}
+
+export const getExperiencesUrl = () => {
+  return `${EXPERIENCES_URL}&order=-fields.startDate`
 }

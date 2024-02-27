@@ -1,0 +1,46 @@
+.experience {
+  &Container {
+    @apply flex
+    flex-col
+    gap-4
+    px-6
+    py-4
+    border
+    border-solid
+    border-gray-300
+    bg-white
+    rounded-md
+    shadow-lg
+    shadow-gray-200
+    ;
+  }
+
+  &Header {
+    @apply flex
+    flex-col
+    gap-1;
+
+    &Type {
+      @apply font-medium
+      ;
+    }
+
+    &Title {
+      @apply font-semibold
+      text-xl
+      ;
+    }
+
+    &Company {
+      @apply font-normal
+      text-lg
+      ;
+    }
+
+    &TimePeriod {
+      @apply text-sm
+      ;
+    }
+  }
+
+}

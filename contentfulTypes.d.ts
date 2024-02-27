@@ -1,16 +1,5 @@
-import { Entry, Asset } from 'contentful';
+import { Entry } from 'contentful';
 import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
-import { Metadata } from 'contentful/dist/types/types/metadata';
-
-interface BaseEntry {
-  sys: {
-    contentType: {
-      sys: {
-        id: string;
-      };
-    };
-  };
-}
 export interface Experience {
   //Experience
   /*  */
@@ -20,6 +9,7 @@ export interface Experience {
   readonly excerpt?: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly experienceType: string
   readonly slug: string
+  readonly startDate: string
   readonly timePeriod: string
   readonly title: string
 }

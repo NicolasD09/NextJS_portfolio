@@ -7,7 +7,8 @@ enum Route {
   // eslint-disable-next-line no-unused-vars
   SKILLS = '/competences',
   // eslint-disable-next-line no-unused-vars
-  PROJECTS = '/projets'
+  PROJECTS = '/projets',
+  EXPERIENCES = '/mon-parcours'
 }
 
 const getRouteForSkill: getRouteFn = (skill: {slug: string}) => {
@@ -18,8 +19,13 @@ const getRouteForProject: getRouteFn = (project: {slug: string}) => {
   return `${Route.PROJECTS}/${project.slug}`
 }
 
+const getRouteForExperience: getRouteFn = (project: {slug: string}) => {
+  return `${Route.EXPERIENCES}/${project.slug}`
+}
+
 export {
   Route,
   getRouteForSkill,
-  getRouteForProject
+  getRouteForProject,
+  getRouteForExperience
 };
