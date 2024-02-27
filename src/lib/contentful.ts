@@ -34,11 +34,15 @@ export const SELF_DESCRIPTION_URL = contentTypeURL('selfDescription')
 export const EXPERIENCES_URL = contentTypeURL('experience')
 
 export const getSkillForSlugURL = (slug: string) => {
-  return `${SKILLS_URL}&fields.slug[match]=${slug}`
+  return `${SKILLS_URL}&fields.slug=${slug}`
 }
 
 export const getProjectForSlugURL = (slug: string) => {
-  return `${PROJECTS_URL}&fields.slug[match]=${slug}&limit=1`
+  return `${PROJECTS_URL}&fields.slug=${slug}&limit=1`
+}
+
+export const getExperienceForSlugURL = (slug: string) => {
+  return `${EXPERIENCES_URL}&fields.slug=${slug}&limit=1`
 }
 
 export const getSelfDescriptionUrl = () => {

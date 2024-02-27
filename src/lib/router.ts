@@ -8,6 +8,7 @@ enum Route {
   SKILLS = '/competences',
   // eslint-disable-next-line no-unused-vars
   PROJECTS = '/projets',
+  // eslint-disable-next-line no-unused-vars
   EXPERIENCES = '/mon-parcours'
 }
 
