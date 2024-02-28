@@ -1,7 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
 import useRenderElementOptions from '@/components/pages/Article/hooks/useRenderElementOptions';
-import { renderDocumentAsset, SimpleAsset } from '@/components/pages/Article/hooks/utils';
+import { SimpleAsset } from '@/components/pages/Article/hooks/utils';
 
 const useRenderDocument = () => {
   const options = useRenderElementOptions()
@@ -12,7 +12,6 @@ const useRenderDocument = () => {
 
   return {
     renderElement,
-    renderAsset: renderDocumentAsset(),
     renderSimpleAsset: SimpleAsset
   }
 }
