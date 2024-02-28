@@ -3,7 +3,6 @@ import { AllSkills } from '@/api/skill';
 import ProjectsMenu from '@/components/Navbar/ProjectsMenu/ProjectsMenu';
 import { ProjectWithSkills } from '@/api/projects';
 import SkillsMenu from '@/components/Navbar/SkillsMenu/SkillsMenu';
-import UnderlineLink from '@/components/Link/UnderlineLink';
 import Link from 'next/link';
 import { Route } from '@/lib/router';
 

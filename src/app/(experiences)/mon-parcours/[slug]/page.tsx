@@ -11,7 +11,6 @@ import { Experience } from '../../../../../contentfulTypes';
 import css from './style.module.scss'
 import GoBackButton from '@/components/UI/Button/GoBackButton';
 import { Route } from '@/lib/router';
-import Link from 'next/link';
 import ArrowTopRight from '@/components/Icons/ArrowTopRight';
 
 type Props = { params: { slug: string }}
