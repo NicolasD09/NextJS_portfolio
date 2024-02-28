@@ -9,6 +9,11 @@
     margin-top: 32px;
     @apply text-xl font-bold;
   }
+
+  & a {
+    color: var(--coral);
+    font-weight: 600;
+  }
 }
 
 .articleTitle {
