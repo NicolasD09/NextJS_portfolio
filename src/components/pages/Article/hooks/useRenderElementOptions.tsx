@@ -1,24 +1,9 @@
-import { AssetFile } from 'contentful';
 import { BLOCKS } from '@contentful/rich-text-types';
-import css from '@/components/pages/Article/Article.module.scss';
-import ImageRenderer from '@/components/pages/Article/ImageRenderer';
+import { renderDocumentAsset } from '@/components/pages/Article/hooks/utils';
 
 const options = {
   renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-      const fields = node.data.target.fields;
-      const file = fields.file as AssetFile;
-
-      return (
-        <div className={css.imageContainer}>
-          <ImageRenderer
-            url={file.url}
-            alt={String(fields.title) ?? ''}
-            className={css.image}
-          />
-        </div>
-      );
-    },
+    [BLOCKS.EMBEDDED_ASSET]: renderDocumentAsset(),
   }
 };
 const useRenderElementOptions = () => {

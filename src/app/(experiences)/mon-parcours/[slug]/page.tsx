@@ -11,6 +11,8 @@ import { Experience } from '../../../../../contentfulTypes';
 import css from './style.module.scss'
 import GoBackButton from '@/components/UI/Button/GoBackButton';
 import { Route } from '@/lib/router';
+import Link from 'next/link';
+import ArrowTopRight from '@/components/Icons/ArrowTopRight';
 
 type Props = { params: { slug: string }}
 
@@ -47,10 +49,24 @@ export default async function Page({ params }: Props) {
 }
 
 const Header = ({ xp }: {xp: Experience}) => {
+  const { renderElement, renderSimpleAsset } = useRenderDocument()
   return (
-    <div>
-      <p className={css.experienceCompany}>{xp.company}</p>
-      <p className={css.experienceTimePeriod}>{xp.timePeriod}</p>
+    <div className={css.experienceHeader}>
+      <div className={css.experienceCompanyContainer}>
+        <div className={css.experienceCompanyImage}>
+          <a href={xp.companyLink} target={'_blank'}>
+            {renderSimpleAsset(xp.companyImage)}
+          </a>
+          <span className={css.experienceCompanyImageLinkIcon}>
+            <ArrowTopRight />
+          </span>
+        </div>
+        <div>
+          <p className={css.experienceCompany}>{xp.company}</p>
+          <p className={css.experienceTimePeriod}>{xp.timePeriod}</p>
+        </div>
+      </div>
+      {renderElement(xp.description)}
     </div>
   )
 }

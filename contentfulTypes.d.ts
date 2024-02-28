@@ -1,12 +1,14 @@
-import { Entry } from 'contentful';
+import { Entry, Asset } from 'contentful';
 import { BLOCKS, NodeData, TopLevelBlock } from '@contentful/rich-text-types';
 export interface Experience {
   //Experience
   /*  */
-  readonly company?: string
-  readonly content?: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
-  readonly description?: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
-  readonly excerpt?: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
+  readonly company: string
+  readonly companyImage: Asset
+  readonly companyLink: string
+  readonly content: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
+  readonly description: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
+  readonly excerpt: { content: TopLevelBlock[], data: NodeData, nodeType: BLOCKS.DOCUMENT }
   readonly experienceType: string
   readonly slug: string
   readonly startDate: string
