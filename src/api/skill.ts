@@ -3,6 +3,7 @@ import { Skill } from '../../contentfulTypes';
 import { fetch } from 'next/dist/compiled/@edge-runtime/primitives';
 import { mapSkill } from '@/utils/apiResponse';
 import resolveResponse from 'contentful-resolve-response';
+
 export const getSkillBySlug = async (slug: string) => {
   const response = await fetch(
     getSkillForSlugURL(slug),
