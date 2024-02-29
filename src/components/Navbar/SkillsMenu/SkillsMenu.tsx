@@ -12,7 +12,7 @@ const SkillsMenu = ({ skills }: SkillsMenuProps) => {
 
   return (
     <Dropdown label={'Compétences'}>
-      <MenuList title={'HUMAINES'} items={skills.humanSkills} getRoute={getRouteForSkill}/>
+      <MenuList title={'TRANSVERSES'} items={skills.humanSkills} getRoute={getRouteForSkill}/>
       <MenuList title={'TECHNIQUES'} items={skills.technicalSkills} getRoute={getRouteForSkill}/>
     </Dropdown>
   )

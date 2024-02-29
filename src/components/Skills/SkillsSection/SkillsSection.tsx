@@ -5,6 +5,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { getRouteForSkill } from '@/lib/router';
 import { Skill } from '../../../../contentfulTypes';
+import { getSkillType, skillTypeLabel } from '@/utils/skills';
 
 const SkillsList = ({ skills }: {skills: Skill[]}) => {
   return (
@@ -17,7 +18,7 @@ const SkillsList = ({ skills }: {skills: Skill[]}) => {
                 {s.title}
               </Link>
               <span className={css.skillType}>
-              /{s.projectType}
+              /{getSkillType(s.projectType as keyof typeof skillTypeLabel)}
               </span>
             </div>
           )

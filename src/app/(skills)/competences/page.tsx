@@ -21,7 +21,7 @@ export default async function Page(){
           </Grid>
           <Grid colSpan={2} mdColSpan={1} item>
             <SkillsList
-              title={'Humaines'}
+              title={'Transverses'}
               skills={allSkills.skillsByType.humanSkills}
             />
           </Grid>
