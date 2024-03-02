@@ -1,3 +1,4 @@
+import React from 'react'
 import { Skill } from '../../../contentfulTypes';
 import Link from 'next/link';
 import { Entry } from 'contentful';
@@ -22,7 +23,7 @@ const LinkedItems = ({ items, getItemRouteUrl }: Props) => {
             // @ts-ignore
             const displayableItem = item.fields as unknown as Skill
             return (
-              <>
+              <React.Fragment key={index}>
                 <Link
                   key={displayableItem.title}
                   href={getItemRouteUrl(displayableItem)}
@@ -35,7 +36,7 @@ const LinkedItems = ({ items, getItemRouteUrl }: Props) => {
                   index !== items.length - 1 &&
                   <span>&middot;</span>
                 }
-              </>
+              </React.Fragment>
             )
           })
       }
