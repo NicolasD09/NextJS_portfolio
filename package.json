@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix"
+    "lint": "next lint --fix",
+    "merge": "git checkout main && git merge && git push && git checkout dev"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.2",
