@@ -12,7 +12,7 @@ import resolveResponse from 'contentful-resolve-response';
 export type ProjectWithSkills = Project & { skills: ContentfulEntryLink[] }
 
 // @ts-ignore
-export const getProjectBySlug = async (slug: string): Promise<{data: Project}> => {
+export const getProjectBySlug = async (slug: string): Promise<{ data: Project }> => {
   const response = await fetch(
     getProjectForSlugURL(slug),
     { ...requestOptions }).then(resp => resp.json())
@@ -34,5 +34,7 @@ export const getAllProjects = async (): Promise<ProjectWithSkills[]> => {
   const mapSkills: MapSkillsFn = mapProjectSkills(skillsMapForResponse);
   const mapProjectForItem = mapProject(mapSkills)
 
-  return response.items.map(mapProjectForItem) as ProjectWithSkills[]
+  return response.items
+    .map(mapProjectForItem)
+    .sort((a: ProjectWithSkills, b: ProjectWithSkills) => a.title.localeCompare(b.title)) as ProjectWithSkills[]
 }
