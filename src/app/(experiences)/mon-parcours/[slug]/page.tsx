@@ -33,7 +33,7 @@ export default async function Page({ params }: Props) {
   return <PageWrapper>
     <ArticleContainer>
       <ArticleHeader
-        title={`${xp.title} en ${xp.experienceType.toLowerCase()}`}
+        title={xp.title}
         content={<Header xp={xp} />}
       />
       <BannerImage />
@@ -51,16 +51,18 @@ const Header = ({ xp }: {xp: Experience}) => {
   const { renderElement, renderSimpleAsset } = useRenderDocument()
   return (
     <div className={css.experienceHeader}>
+
       <div className={css.experienceCompanyContainer}>
         <div className={css.experienceCompanyImage}>
           <a href={xp.companyLink} target={'_blank'}>
             {renderSimpleAsset(xp.companyImage)}
           </a>
           <span className={css.experienceCompanyImageLinkIcon}>
-            <ArrowTopRight />
+            <ArrowTopRight/>
           </span>
         </div>
         <div>
+          <span className={css.experienceType}>{xp.experienceType}</span>
           <p className={css.experienceCompany}>{xp.company}</p>
           <p className={css.experienceTimePeriod}>{xp.timePeriod}</p>
         </div>

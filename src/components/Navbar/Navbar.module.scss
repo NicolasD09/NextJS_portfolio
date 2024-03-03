@@ -1,5 +1,5 @@
 .navbar {
-  @apply mix-blend-difference
+  @apply text-white
   justify-between
   items-center
   h-[80px]
@@ -11,10 +11,14 @@
 }
 
 .navbarContainer {
-  @apply fixed top-0 left-0 right-0 z-[5];
+  @apply fixed top-0 left-0 right-0 z-[5] mix-blend-difference;
 
   &.scroll {
-    @apply bg-white;
+    & * {
+      @apply font-[300];
+    }
+
+    @apply bg-white mix-blend-normal shadow-md;
     transition: background-color .5s ease;
 
     & .navbar {
@@ -27,7 +31,7 @@
   }
 
   & * {
-    @apply font-normal;
+    @apply font-[200];
   }
 }
 
