@@ -4,7 +4,7 @@
 }
 
 .menuListGroup {
-  @apply flex flex-col gap-2;
+  @apply flex flex-col gap-2 items-start;
 
   &.hasTitle {
     @apply pl-3;
