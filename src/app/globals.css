@@ -57,7 +57,11 @@ video {
 }
 
 /* Style for the navbar dropdown menus */
-[data-radix-popper-content-wrapper] { top: 8px !important; }
+[data-radix-popper-content-wrapper] {
+  top: 8px !important;
+  z-index: 10 !important;
+}
+
 
 ul {
   list-style: disc;

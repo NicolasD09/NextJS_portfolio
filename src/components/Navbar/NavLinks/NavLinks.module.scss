@@ -1,13 +1,14 @@
 .navLinksContainer {
   @apply flex
-        items-center
-        justify-between
-        gap-6
-        font-extralight
-        uppercase
-        text-[14px];
+  items-center
+  justify-between
+  gap-6
+  font-extralight
+  uppercase
+  text-[14px]
+  ;
 
   & button {
-        outline: none;
+    outline: none;
   }
 }

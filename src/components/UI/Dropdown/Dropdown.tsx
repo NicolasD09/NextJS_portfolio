@@ -8,19 +8,19 @@ import { PropsWithChildren } from 'react';
 const Dropdown = ({ children, label }: PropsWithChildren & {label: string}) => {
   return (
     <Dd.Root>
-      <Dd.Trigger className={css.skillsMenuTrigger}>
+      <Dd.Trigger className={css.dropdownMenuTrigger}>
         <span>
           {label}
         </span>
-        <DropdownArrowDown className={css.skillsMenuDropdownArrow}/>
+        <DropdownArrowDown className={css.dropdownMenuDropdownArrow}/>
       </Dd.Trigger>
       <Dd.Portal>
         {/* Content */}
         <Dd.Content align={'center'} className={css.DropdownMenuContent}>
-          <div className={css.skillsMenu}>
+          <div className={css.dropdownMenu}>
             {children}
           </div>
-          <Dd.Arrow className={css.skillsMenuArrow}/>
+          <Dd.Arrow className={css.dropdownMenuArrow}/>
         </Dd.Content>
       </Dd.Portal>
     </Dd.Root>
