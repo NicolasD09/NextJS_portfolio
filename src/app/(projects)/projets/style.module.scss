@@ -3,13 +3,13 @@
   font-size: clamp(28px, 6vw, 44px);
 }
 
-.experiencesContainer {
+.projectsContainer {
   @apply pb-12;
   width: min(90%, 1100px);
   margin-inline: auto;
 }
 
-.experiencesList {
+.projectsList {
   @apply flex flex-col gap-20;
   max-width: 750px;
   margin-inline: auto;
