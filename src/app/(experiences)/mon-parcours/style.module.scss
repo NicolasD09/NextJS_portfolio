@@ -10,7 +10,37 @@
 }
 
 .experiencesList {
-  @apply flex flex-col gap-12;
+  --bgColor : var(--coral);
+  @apply flex flex-col gap-12 pl-10 py-4 relative;
   max-width: 750px;
   margin-inline: auto;
+  border-left: 4px solid var(--bgColor);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  // top
+  &::before {
+    top: -4px;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+
+    border-bottom: 12px solid var(--bgColor);
+  }
+
+  // bottom
+  &::after {
+    bottom: 0;
+    left: -10px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bgColor);
+    border-radius: 16px;
+  }
 }

@@ -12,7 +12,18 @@
     rounded-md
     shadow-lg
     shadow-gray-200
+    relative
     ;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 44px;
+      height: 4px;
+      top: 50%;
+      left: -44px;
+      background-color: var(--bgColor);
+    }
   }
 
   &Header {
