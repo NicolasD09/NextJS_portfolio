@@ -9,7 +9,9 @@ enum Route {
   // eslint-disable-next-line no-unused-vars
   PROJECTS = '/projets',
   // eslint-disable-next-line no-unused-vars
-  EXPERIENCES = '/mon-parcours'
+  EXPERIENCES = '/mon-parcours',
+  // eslint-disable-next-line no-unused-vars
+  CONTACT = '/contact'
 }
 
 const getRouteForSkill: getRouteFn = (skill: {slug: string}) => {

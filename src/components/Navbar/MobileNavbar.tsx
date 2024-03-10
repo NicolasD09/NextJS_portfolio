@@ -48,6 +48,9 @@ const MobileNavbar = ({ skills, projects }: NavLinksProps) => {
                 <Grid item colSpan={2}>
                   <Link href={Route.EXPERIENCES}>mon parcours</Link>
                 </Grid>
+                <Grid item colSpan={2}>
+                  <Link href={Route.CONTACT}>contact</Link>
+                </Grid>
               </Grid>
             </Dialog.Content>
           </Dialog.Overlay>

@@ -20,6 +20,9 @@ const NavLinks = ( { skills, projects } : NavLinksProps) => {
       <Link href={Route.EXPERIENCES} >
         mon parcours
       </Link>
+      <Link href={Route.CONTACT} >
+        contact
+      </Link>
     </div>
   )
 }
