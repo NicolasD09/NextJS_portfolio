@@ -27,9 +27,9 @@ const options = {
       const slug = node.data.target.fields.slug;
       const content = node.content[0].value;
       let URL;
-      if(contentType === 'skill') {
+      if (contentType === 'skill') {
         URL = `${Route.SKILLS}/${slug}`
-      } else if(contentType === 'project') {
+      } else if (contentType === 'project') {
         URL = `${Route.PROJECTS}/${slug}`
       } else return null
 

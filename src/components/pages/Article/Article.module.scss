@@ -2,7 +2,7 @@
   overflow: hidden;
   padding-bottom: 48px;
   & p {
-    @apply my-4;
+    @apply my-4 text-justify;
   }
 
   & h3 {
