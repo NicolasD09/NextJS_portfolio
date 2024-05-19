@@ -11,7 +11,7 @@ export const client = createClient({
 });
 
 export const requestOptions: Partial<RequestInit> = {
-  // cache: 'no-store',
+  cache: 'force-cache',
   headers: {
     'Cache-Control': 'public, max-age=9999, must-revalidate',
     'CDN-Cache-Control': 'public, max-age=9999, must-revalidate',
