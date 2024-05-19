@@ -11,6 +11,12 @@ export const client = createClient({
 });
 
 export const requestOptions: Partial<RequestInit> = {
+  // cache: 'no-store',
+  headers: {
+    'Cache-Control': 'public, max-age=9999, must-revalidate',
+    'CDN-Cache-Control': 'public, max-age=9999, must-revalidate',
+    'Vercel-CDN-Cache-Control': 'public, max-age=9999, must-revalidate',
+  }
 }
 
 const contentfulApiURL = `https://cdn.contentful.com/spaces/${contentfulspaceid}/entries?access_token=${contentfultoken}`;
